@@ -1,4 +1,10 @@
 package com.example.androidproject25b.Entity
 
-class Customer {
-}
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
+class Customer (
+    @PrimaryKey
+    var Customerid:Int
+)

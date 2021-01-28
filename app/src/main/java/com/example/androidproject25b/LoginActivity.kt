@@ -6,6 +6,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import com.example.androidproject25b.Entity.User
+import com.example.androidproject25b.db.UserDB
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class LoginActivity : AppCompatActivity() {
 
@@ -34,7 +41,22 @@ class LoginActivity : AppCompatActivity() {
 
     private fun login(){
         val U_name = etUsername.text.toString()
-        val U_passworc =etPassword.text.toString()
+        val U_password =etPassword.text.toString()
+
+        var user:User?=null
+        CoroutineScope(Dispatchers.IO).launch {
+            user =UserDB.getInstance(this@LoginActivity)
+                .getUserDAO().checkUser(U_name, U_password)
+
+            if (user==null) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@LoginActivity, "Invalid credentials", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }else {
+                startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+            }
+        }
 
     }
 }
