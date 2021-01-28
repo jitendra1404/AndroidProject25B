@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/AppointmentPage"
+        android:enabled="true"
+        android:icon="@drawable/appointmentnew_104208"
+        android:title="Appointment"/>
+
+    <item
+
+        android:id="@+id/ServicesPage"
+        android:enabled="true"
+        android:icon="@drawable/services_application_3009"
+        android:title="Services"/>
+
+    <item
+        android:id="@+id/Feedbackpage"
+        android:enabled="true"
+        android:icon="@drawable/feed"
+        android:title="Feedback"/>
+
+</menu>
