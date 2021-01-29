@@ -18,7 +18,6 @@ class SplashActivity : AppCompatActivity() {
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
             android.Manifest.permission.ACCESS_FINE_LOCATION
     )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -26,14 +25,14 @@ class SplashActivity : AppCompatActivity() {
         if (!hasPermission()) {
             requestPermission()
         }
-
         CoroutineScope(Dispatchers.Main).launch {
             delay(1000)
-
+            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
 
             finish()
         }
     }
+
     private fun requestPermission() {
         ActivityCompat.requestPermissions(
                 this@SplashActivity,
@@ -54,3 +53,5 @@ class SplashActivity : AppCompatActivity() {
         return hasPermission
     }
     }
+
+
