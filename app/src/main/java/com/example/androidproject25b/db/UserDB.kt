@@ -11,7 +11,7 @@ import com.example.androidproject25b.dao.UserDAO
 
 @Database(
     entities = [(User::class),(Customer::class)],
-    version = 2,
+    version = 1,
     exportSchema = false
 )
 
