@@ -1,5 +1,6 @@
 package com.example.androidproject25b
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var etPassword :EditText
     private lateinit var etsignUp :TextView
     private lateinit var btnLogin :Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -32,11 +34,35 @@ class LoginActivity : AppCompatActivity() {
         etPassword.setText("")
 
         btnLogin.setOnClickListener {
+
+            saveSharePref()
+
             login()
         }
         etsignUp.setOnClickListener {
-            startActivity(Intent(this@LoginActivity, RegistrationActivity::class.java))
+
+            getSharePref()
+
+
         }
+
+    }
+    private fun saveSharePref(){
+        val Username =etUsername.text.toString()
+        val Password =etPassword.text.toString()
+        val sharePref =getSharedPreferences("jetuPref",MODE_PRIVATE)
+        val editor =sharePref.edit()
+        editor.putString("username", Username)
+        editor.putString("password", Password)
+        editor.apply()
+        Toast.makeText(this@LoginActivity, " Username and password saved", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun getSharePref(){
+        val sharedPref = getSharedPreferences("jetuPref",MODE_PRIVATE)
+        val Username =sharedPref.getString("username", "")
+        val Password =sharedPref.getString("password", "")
+        Toast.makeText(this, "Username :$Username and password : $Password", Toast.LENGTH_SHORT).show()
     }
 
     private fun login(){
@@ -54,9 +80,15 @@ class LoginActivity : AppCompatActivity() {
                         .show()
                 }
             }else {
-                startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+
+                val intent=(Intent(this@LoginActivity, DashboardActivity::class.java))
+                startActivity(intent)
             }
+
+            startActivity(Intent(this@LoginActivity, RegistrationActivity::class.java))
+
         }
+
 
     }
 }

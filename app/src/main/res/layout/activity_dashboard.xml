@@ -9,6 +9,7 @@
     android:layout_height="match_parent"
     tools:context=".DashboardActivity">
 
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/DashboardNavigation"
         android:layout_width="match_parent"
@@ -18,8 +19,5 @@
         app:menu="@menu/button_nav_menu"
         android:background="#9C27B0"
         app:itemIconTint="#00BCD4"/>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
