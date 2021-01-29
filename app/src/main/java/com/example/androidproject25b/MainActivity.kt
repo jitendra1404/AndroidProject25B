@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         Userlogin.setOnClickListener{
 
-            var   intent = Intent(this@MainActivity, LoginActivity::class.java)
+            var   intent = Intent(this@MainActivity, SplashActivity::class.java)
             startActivity(intent)
 
             Toast.makeText(this, "welcome User login", Toast.LENGTH_SHORT).show()
