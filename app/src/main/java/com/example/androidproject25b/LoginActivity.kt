@@ -43,6 +43,7 @@ class LoginActivity : AppCompatActivity() {
 
             getSharePref()
 
+            startActivity(Intent(this@LoginActivity, RegistrationActivity::class.java))
 
         }
 
@@ -85,10 +86,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-            startActivity(Intent(this@LoginActivity, RegistrationActivity::class.java))
-
         }
-
 
     }
 }
