@@ -22,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var etsignUp :TextView
     private lateinit var btnLogin :Button
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -44,7 +45,6 @@ class LoginActivity : AppCompatActivity() {
             getSharePref()
 
             startActivity(Intent(this@LoginActivity, RegistrationActivity::class.java))
-
         }
 
     }
