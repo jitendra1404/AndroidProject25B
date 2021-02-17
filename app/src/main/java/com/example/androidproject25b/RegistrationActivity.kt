@@ -13,6 +13,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class RegistrationActivity : AppCompatActivity() {
+
+    private lateinit var username:EditText
+    private lateinit var password:EditText
+    private lateinit var address:EditText
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
