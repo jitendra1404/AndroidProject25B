@@ -51,7 +51,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.274"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Image" />
+            app:layout_constraintTop_toBottomOf="@+id/Image"
+            android:drawableLeft="@drawable/user" />
 
         <EditText
             android:id="@+id/edEmail"
@@ -62,12 +63,12 @@
             android:ems="10"
             android:padding="10dp"
             android:inputType="textEmailAddress"
-            android:drawableStart="@drawable/emailuser"
             android:hint="   Email "
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.263"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edUsername" />
+            app:layout_constraintTop_toBottomOf="@+id/edUsername"
+            android:drawableLeft="@drawable/emailuser" />
 
         <EditText
             android:id="@+id/edAddress"
@@ -84,7 +85,8 @@
             app:layout_constraintHorizontal_bias="0.263"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="411dp"
-            app:layout_constraintTop_toBottomOf="@id/edEmail"/>
+            app:layout_constraintTop_toBottomOf="@id/edEmail"
+            android:drawableLeft="@drawable/addressuser" />
 
         <EditText
             android:id="@+id/edmobile"
@@ -101,7 +103,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.263"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edAddress" />
+            app:layout_constraintTop_toBottomOf="@+id/edAddress"
+            android:drawableLeft="@drawable/mobile_phone" />
 
         <EditText
             android:id="@+id/edPassword"
@@ -117,7 +120,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edmobile" />
+            app:layout_constraintTop_toBottomOf="@+id/edmobile"
+            android:drawableLeft="@drawable/password1" />
 
         <EditText
             android:id="@+id/edConfirmPassword"
@@ -133,7 +137,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/edPassword"
+            android:drawableLeft="@drawable/password1" />
 
         <Button
             android:id="@+id/btnSingUP"

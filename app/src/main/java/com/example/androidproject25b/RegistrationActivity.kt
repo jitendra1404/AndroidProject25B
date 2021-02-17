@@ -39,7 +39,7 @@ class RegistrationActivity : AppCompatActivity() {
             val address = address.text.toString()
             val mobile =mobile.text.toString()
             val email = email.text.toString()
-            val password = password.text.toString()
+            val Password = password.text.toString()
             val ConfirmPassword =confirmpassword.text.toString()
 
             if (Password != ConfirmPassword) {
@@ -48,7 +48,7 @@ class RegistrationActivity : AppCompatActivity() {
                 return@setOnClickListener
 
             }else {
-                val user =User(Name, Address, Mobile, Email, Password)
+                val user =User(username= username, address = address, mobile = mobile, email = email, password = Password)
                 CoroutineScope(Dispatchers.IO).launch {
                     UserDB.getInstance(this@RegistrationActivity).getUserDAO().resgisterUser(user)
                 }
