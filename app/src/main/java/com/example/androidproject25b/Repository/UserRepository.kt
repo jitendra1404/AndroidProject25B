@@ -7,13 +7,13 @@ import com.example.androidproject25b.api.UserAPI
 import com.example.androidproject25b.response.LoginResponse
 
 class UserRepository :
-        MyAPIRequest() {
+    MyAPIRequest() {
 
-           val userAPI=ServiceBuilder.buildServices(UserAPI::class.java)
+    val userAPI = ServiceBuilder.buildServices(UserAPI::class.java)
 
     //Register User
 
-    suspend fun registerUser(user:User): LoginResponse {
+    suspend fun registerUser(user: User): LoginResponse {
         return apiRequest {
             userAPI.registerUser(user)
         }
@@ -21,7 +21,7 @@ class UserRepository :
 
     //login user
 
-    suspend fun loginUser(username:String, password:String):LoginResponse{
+    suspend fun loginUser(username: String, password: String): LoginResponse {
         return apiRequest {
             userAPI.loginUser(username, password)
         }
