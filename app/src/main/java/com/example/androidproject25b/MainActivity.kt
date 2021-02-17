@@ -9,19 +9,19 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
 
     private lateinit var Userlogin : Button
-    private lateinit var Adminlogin : Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Userlogin =findViewById(R.id.btnUser_Login)
-        Adminlogin =findViewById(R.id.btnAdmin_Login)
+        Userlogin =findViewById(R.id.btnLogin)
+
 
 
         Userlogin.setOnClickListener{
 
-            var   intent = Intent(this@MainActivity, SplashActivity::class.java)
+            var intent = Intent(this@MainActivity, SplashActivity::class.java)
             startActivity(intent)
 
             Toast.makeText(this, "welcome User login", Toast.LENGTH_SHORT).show()

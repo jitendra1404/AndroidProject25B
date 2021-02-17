@@ -7,7 +7,8 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class User(
-        var username : String? =null,
+        val _id:String? =null,
+        var username :String? =null,
         var address : String?=null,
         var mobile: String?=null,
         var Email:String?=null,
@@ -22,11 +23,14 @@ data class User(
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
-            parcel.readString()) {
+            parcel.readString(),
+            parcel.readString())
+    {
         userId = parcel.readInt()
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(_id)
         parcel.writeString(username)
         parcel.writeString(address)
         parcel.writeString(mobile)

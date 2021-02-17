@@ -10,7 +10,7 @@ import com.example.androidproject25b.Entity.User
 import com.example.androidproject25b.dao.UserDAO
 
 @Database(
-    entities = [(User::class),(Customer::class)],
+    entities = [(User::class)],
     version = 1,
     exportSchema = false
 )

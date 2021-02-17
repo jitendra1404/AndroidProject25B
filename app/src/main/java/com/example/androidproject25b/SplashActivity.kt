@@ -12,19 +12,11 @@ import kotlinx.coroutines.launch
 
 class SplashActivity : AppCompatActivity() {
 
-    private val permission = arrayOf(
-
-            android.Manifest.permission.CAMERA,
-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            android.Manifest.permission.ACCESS_FINE_LOCATION
-    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        if (!hasPermission()) {
-            requestPermission()
-        }
+
         CoroutineScope(Dispatchers.Main).launch {
             delay(1000)
             startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
@@ -32,26 +24,7 @@ class SplashActivity : AppCompatActivity() {
             finish()
         }
     }
+    }
 
-    private fun requestPermission() {
-        ActivityCompat.requestPermissions(
-                this@SplashActivity,
-                permission, 1
-        )
-    }
-    private fun hasPermission(): Boolean {
-        var hasPermission = true
-        for (permission in permission) {
-            if (ActivityCompat.checkSelfPermission(
-                            this,
-                            permission
-                    ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                hasPermission = false
-            }
-        }
-        return hasPermission
-    }
-    }
 
 

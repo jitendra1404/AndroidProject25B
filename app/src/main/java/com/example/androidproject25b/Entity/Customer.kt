@@ -4,7 +4,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class Customer (
+data class Customer (
+
     @PrimaryKey
     var Customerid:Int
 )
