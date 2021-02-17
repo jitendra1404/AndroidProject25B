@@ -17,27 +17,30 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var username:EditText
     private lateinit var password:EditText
     private lateinit var address:EditText
-
+    private lateinit var mobile:EditText
+    private lateinit var email:EditText
+    private lateinit var confirmpassword:EditText
+    private lateinit var signUp:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
-        var username : EditText = findViewById(R.id.edUsername)
-        var email : EditText =findViewById(R.id.edEmail)
-        var mobile : EditText =findViewById(R.id.edmobile)
-        var address : EditText =findViewById(R.id.edAddress)
-        var password : EditText =findViewById(R.id.edPassword)
-        var confimrpassword :EditText=findViewById(R.id.edConfirmPassword)
-        var signUp : Button =findViewById(R.id.btnSingUP)
+        username = findViewById(R.id.edUsername)
+        email = findViewById(R.id.edEmail)
+        mobile = findViewById(R.id.edmobile)
+        address = findViewById(R.id.edAddress)
+        password = findViewById(R.id.edPassword)
+        confirmpassword = findViewById(R.id.edConfirmPassword)
+        signUp = findViewById(R.id.btnSingUP)
 
         signUp.setOnClickListener{
 
-            val Name = username.text.toString()
-            val Address = address.text.toString()
-            val Mobile =mobile.text.toString()
-            val Email = email.text.toString()
-            val Password = password.text.toString()
-            val ConfirmPassword =confimrpassword.text.toString()
+            val username = username.text.toString()
+            val address = address.text.toString()
+            val mobile =mobile.text.toString()
+            val email = email.text.toString()
+            val password = password.text.toString()
+            val ConfirmPassword =confirmpassword.text.toString()
 
             if (Password != ConfirmPassword) {
                 password.error = "password does not match"

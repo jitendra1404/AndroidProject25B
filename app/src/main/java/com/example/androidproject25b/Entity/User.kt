@@ -11,7 +11,7 @@ data class User(
         var username :String? =null,
         var address : String?=null,
         var mobile: String?=null,
-        var Email:String?=null,
+        var email:String?=null,
          var password:String?=null
 
 ):Parcelable{
@@ -34,7 +34,7 @@ data class User(
         parcel.writeString(username)
         parcel.writeString(address)
         parcel.writeString(mobile)
-        parcel.writeString(Email)
+        parcel.writeString(email)
         parcel.writeString(password)
         parcel.writeInt(userId)
     }
