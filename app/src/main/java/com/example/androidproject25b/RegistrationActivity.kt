@@ -72,7 +72,6 @@ class RegistrationActivity : AppCompatActivity() {
                         }
                     }
 
-
                     UserDB.getInstance(this@RegistrationActivity).getUserDAO().resgisterUser(user)
                 }
                 Toast.makeText(this, "User sinUp", Toast.LENGTH_SHORT).show()
