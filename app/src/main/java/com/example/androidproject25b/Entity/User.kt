@@ -7,49 +7,13 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class User(
-        val _id:String? =null,
-        var username :String? =null,
-        var address : String?=null,
-        var mobile: String?=null,
-        var email:String?=null,
-         var password:String?=null
+        var custo_name :String? =null,
+        var custo_address : String?=null,
+        var custo_email: String?=null,
+        var custo_mobile:String?=null,
+         var custo_password:String?=null
 
-):Parcelable{
-    @PrimaryKey(autoGenerate=true)
-    var userId: Int =0
-
-    constructor(parcel: Parcel) : this(
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString())
-    {
-        userId = parcel.readInt()
-    }
-
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(_id)
-        parcel.writeString(username)
-        parcel.writeString(address)
-        parcel.writeString(mobile)
-        parcel.writeString(email)
-        parcel.writeString(password)
-        parcel.writeInt(userId)
-    }
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<User> {
-        override fun createFromParcel(parcel: Parcel): User {
-            return User(parcel)
-        }
-
-        override fun newArray(size: Int): Array<User?> {
-            return arrayOfNulls(size)
-        }
-    }
+) {
+    @PrimaryKey(autoGenerate = true)
+    var userId: Int = 0
 }

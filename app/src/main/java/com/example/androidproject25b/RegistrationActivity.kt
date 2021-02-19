@@ -9,7 +9,7 @@ import android.widget.Toast
 import com.example.androidproject25b.Entity.User
 import com.example.androidproject25b.Repository.UserRepository
 import com.example.androidproject25b.api.ServiceBuilder
-import com.example.androidproject25b.db.UserDB
+//import com.example.androidproject25b.db.UserDB
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.Main
@@ -38,47 +38,64 @@ class RegistrationActivity : AppCompatActivity() {
         confirmpassword = findViewById(R.id.edConfirmPassword)
         signUp = findViewById(R.id.btnSingUP)
 
-        signUp.setOnClickListener{
+        signUp.setOnClickListener {
 
             val username = username.text.toString()
             val address = address.text.toString()
-            val mobile =mobile.text.toString()
+            val mobile = mobile.text.toString()
             val email = email.text.toString()
             val Password = password.text.toString()
-            val ConfirmPassword =confirmpassword.text.toString()
+            val ConfirmPassword = confirmpassword.text.toString()
 
             if (Password != ConfirmPassword) {
                 password.error = "password does not match"
                 password.requestFocus()
                 return@setOnClickListener
 
-            }else {
-                val user =User(username= username, address = address, mobile = mobile, email = email, password = Password)
-                Toast.makeText(this, "AAYO KALO KETA", Toast.LENGTH_SHORT).show()
+            } else {
+                val user = User(
+                    custo_name= username,
+                    custo_address = address,
+                    custo_mobile= mobile,
+                    custo_email = email,
+                    custo_password = Password
+                )
+//                Toast.makeText(this, "AAYO", Toast.LENGTH_SHORT).show()
                 CoroutineScope(Dispatchers.IO).launch {
+                    val repository = UserRepository()
 
-                    val repository=UserRepository()
                     try {
-                        val response= repository.registerUser(user)
-                        if (response.success==true){
-                            ServiceBuilder.token == "Bearer " +response.token
-                            withContext(Main){
-                                Toast.makeText(this@RegistrationActivity, "Successfully registered", Toast.LENGTH_SHORT).show()
+                        val response = repository.registerUser(user)
+                        if (response.success == true) {
+                            ServiceBuilder.token = "Bearer " + response.token
+                            withContext(Main) {
+                                Toast.makeText(
+                                    this@RegistrationActivity,
+                                    "Successfully registered",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
-                    }catch (ex:Exception){
-                        withContext(Main){
-                            Toast.makeText(this@RegistrationActivity, "Register Fail", Toast.LENGTH_SHORT).show()
+                    } catch (ex: Exception) {
+                        withContext(Main) {
+                            Toast.makeText(
+                                this@RegistrationActivity,
+                                ex.toString(),
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
+//                    }
+//
+//                    UserDB.getInstance(this@RegistrationActivity).getUserDAO().resgisterUser(user)
+//                }
+//                Toast.makeText(this, "User sinUp", Toast.LENGTH_SHORT).show()
                     }
-
-                    UserDB.getInstance(this@RegistrationActivity).getUserDAO().resgisterUser(user)
+//
+//
                 }
-                Toast.makeText(this, "User sinUp", Toast.LENGTH_SHORT).show()
             }
-
-
         }
+
     }
 }
 

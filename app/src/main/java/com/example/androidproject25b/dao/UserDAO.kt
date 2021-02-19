@@ -6,14 +6,14 @@ import androidx.room.Query
 import com.example.androidproject25b.Entity.User
 
 
-@Dao
-interface UserDAO {
+//@Dao
+//interface UserDAO {
 
-    @Insert
+//    @Insert
+//
+//    suspend fun resgisterUser(user: User)
+//
+//    @Query("select * from User where username=(:username) and password=(:password)")
+//    suspend fun checkUser(username:String, password :String):User
 
-    suspend fun resgisterUser(user: User)
-
-    @Query("select * from User where username=(:username) and password=(:password)")
-    suspend fun checkUser(username:String, password :String):User
-
-}
+//}

@@ -12,7 +12,7 @@ interface UserAPI {
 
     // register user
 
-    @POST("auth/register")
+    @POST("register")
     suspend fun registerUser(
             @Body user: User
     ): Response<LoginResponse>
@@ -21,7 +21,7 @@ interface UserAPI {
     // login user
 
     @FormUrlEncoded
-    @POST("auth/login")
+    @POST("login")
     suspend fun loginUser(
         @Field("username") username: String,
         @Field("password") password: String

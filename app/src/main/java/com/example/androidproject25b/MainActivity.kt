@@ -8,18 +8,17 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var Userlogin : Button
+    private lateinit var usergo : Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Userlogin =findViewById(R.id.btnLogin)
+        usergo =findViewById(R.id.btnGo)
 
 
-
-        Userlogin.setOnClickListener{
+        usergo.setOnClickListener{
 
             var intent = Intent(this@MainActivity, SplashActivity::class.java)
             startActivity(intent)
