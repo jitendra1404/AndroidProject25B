@@ -19,9 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidProject25B"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AboutActivity"></activity>
-        <activity android:name=".AppointmentActivity" />
-        <activity android:name=".DashboardActivity" />
+
+        <activity android:name=".DashboardActivity" ></activity>
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

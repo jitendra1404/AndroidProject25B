@@ -4,31 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9315A5"
+    android:background="#9651B3"
     android:orientation="vertical"
     tools:context=".DashboardActivity">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Dashboard"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/DashboardNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/DashboardNavigation"
+        android:id="@+id/ButtonNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/purple_700"
+        android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:itemIconTint="@drawable/selector"
+        app:itemIconTint="#FF9800"
+        app:itemTextColor="#FF9800"
         app:menu="@menu/button_nav_menu" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ButtonNavigation"
+        android:layout_height="0dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

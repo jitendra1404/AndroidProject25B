@@ -1,19 +1,16 @@
 package com.example.androidproject25b
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.Button
 import androidx.core.app.ActivityCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 class DashboardActivity : AppCompatActivity() {
-
-
-
-    private lateinit var appoinmentpage:NavigationView
-    private lateinit var aboutpage:NavigationView
 
 
     private val permissions = arrayOf(
@@ -28,8 +25,8 @@ class DashboardActivity : AppCompatActivity() {
         if (!hasPermission()) {
             requestPermission()
         }
-    }
 
+    }
 
         private fun requestPermission() {
             ActivityCompat.requestPermissions(
@@ -50,7 +47,5 @@ class DashboardActivity : AppCompatActivity() {
         }
         return hasPermission
     }
-
-
 
     }
