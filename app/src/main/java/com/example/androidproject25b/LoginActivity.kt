@@ -8,11 +8,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.core.app.ActivityCompat
-import com.example.androidproject25b.Entity.User
+//import com.example.androidproject25b.Entity.User
 import com.example.androidproject25b.Repository.UserRepository
 import com.example.androidproject25b.api.ServiceBuilder
 //import com.example.androidproject25b.db.UserDB
-import com.google.android.material.snackbar.Snackbar
+//import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -51,15 +51,14 @@ class LoginActivity : AppCompatActivity() {
 
         checkRunTimePermission()
         btnLogin.setOnClickListener {
-
-//            saveSharePref()
             login()
+//            saveSharePref()
+
         }
         etsignUp.setOnClickListener {
 //            getSharePref()
             startActivity(Intent(this@LoginActivity, RegistrationActivity::class.java))
         }
-
     }
 
     private fun checkRunTimePermission() {
@@ -101,7 +100,7 @@ class LoginActivity : AppCompatActivity() {
 //        Toast.makeText(this@LoginActivity, " Username and password saved", Toast.LENGTH_SHORT)
 //            .show()
 //    }
-
+//
 //    private fun getSharePref() {
 //        val sharedPref = getSharedPreferences("jetuPref", MODE_PRIVATE)
 //        val Username = sharedPref.getString("username", "")
@@ -116,6 +115,7 @@ class LoginActivity : AppCompatActivity() {
 
 //        var user: User? = null
         CoroutineScope(Dispatchers.IO).launch {
+
             try {
                 val repository = UserRepository()
                 val response = repository.loginUser(U_name, U_password)
@@ -129,7 +129,6 @@ class LoginActivity : AppCompatActivity() {
                         )
                     )
                     finish()
-
                 }
             } catch (ex: Exception) {
                 withContext(Dispatchers.Main) {
@@ -143,19 +142,21 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 }
-//                }
-//                else {
-//                    withContext(Dispatchers.Main) {
-//                        val snack = Snackbar.make(
-//                            linearLayout,
-//                            "Invalid Credentials", Snackbar.LENGTH_LONG
-//                        )
-//                        snack.setAction("Ok", View.OnClickListener {
-//                            snack.dismiss()
-//                        })
-//                        snack.show()
 
-//                    }
+
+//user = UserDB.getInstance(this@LoginActivity).getUserDAO().checkUser(U_name, U_password)
+//
+//            if (user == null)
+//                withContext(Dispatchers.Main) {
+//                    Toast.makeText(this@LoginActivity, "Invalid Credentials", Toast.LENGTH_SHORT)
+//                        .show()
+//                }
+//      else {
+//          startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+//            }
+
+
+//
 //                }
 //            } catch (ex: Exception) {
 ////                withContext(Dispatchers.Main) {
@@ -179,4 +180,15 @@ class LoginActivity : AppCompatActivity() {
 
 
 
+//                else {
+//                    withContext(Dispatchers.Main) {
+//                        val snack = Snackbar.make(
+////                            linearLayout,
+//                            "Invalid Credentials", Snackbar.LENGTH_LONG
+//                        )
+//                        snack.setAction("Ok", View.OnClickListener {
+//                            snack.dismiss()
+//                        })
+//                        snack.show()
+//                    }
 

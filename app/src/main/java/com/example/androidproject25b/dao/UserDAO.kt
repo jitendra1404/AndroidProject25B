@@ -8,12 +8,12 @@ import com.example.androidproject25b.Entity.User
 
 //@Dao
 //interface UserDAO {
-
+//
 //    @Insert
 //
 //    suspend fun resgisterUser(user: User)
 //
-//    @Query("select * from User where username=(:username) and password=(:password)")
+//    @Query("select * from User where custo_name=(:username) and custo_password=(:password)")
 //    suspend fun checkUser(username:String, password :String):User
-
+//
 //}

@@ -19,13 +19,13 @@ import java.lang.Exception
 
 class RegistrationActivity : AppCompatActivity() {
 
-    private lateinit var username:EditText
-    private lateinit var password:EditText
-    private lateinit var address:EditText
-    private lateinit var mobile:EditText
-    private lateinit var email:EditText
-    private lateinit var confirmpassword:EditText
-    private lateinit var signUp:Button
+    private lateinit var username: EditText
+    private lateinit var password: EditText
+    private lateinit var address: EditText
+    private lateinit var mobile: EditText
+    private lateinit var email: EditText
+    private lateinit var confirmpassword: EditText
+    private lateinit var signUp: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,17 +54,17 @@ class RegistrationActivity : AppCompatActivity() {
 
             } else {
                 val user = User(
-                    custo_name= username,
+                    custo_name = username,
                     custo_address = address,
-                    custo_mobile= mobile,
+                    custo_mobile = mobile,
                     custo_email = email,
                     custo_password = Password
                 )
 //                Toast.makeText(this, "AAYO", Toast.LENGTH_SHORT).show()
                 CoroutineScope(Dispatchers.IO).launch {
-                    val repository = UserRepository()
 
                     try {
+                        val repository = UserRepository()
                         val response = repository.registerUser(user)
                         if (response.success == true) {
                             ServiceBuilder.token = "Bearer " + response.token
@@ -89,13 +89,15 @@ class RegistrationActivity : AppCompatActivity() {
 //                    UserDB.getInstance(this@RegistrationActivity).getUserDAO().resgisterUser(user)
 //                }
 //                Toast.makeText(this, "User sinUp", Toast.LENGTH_SHORT).show()
+//                    }
+
+
                     }
-//
-//
                 }
             }
         }
-
     }
 }
+
+
 
