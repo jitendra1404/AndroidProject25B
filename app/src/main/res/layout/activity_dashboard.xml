@@ -10,7 +10,7 @@
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/ButtonNavigation"
+        android:id="@+id/buttom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black"
@@ -24,7 +24,7 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/ButtonNavigation"
+        app:layout_constraintBottom_toTopOf="@id/buttom_navigation"
         android:layout_height="0dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
