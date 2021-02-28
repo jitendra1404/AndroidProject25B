@@ -5,8 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.core.app.ActivityCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 class DashboardActivity : AppCompatActivity() {
+
+
+
+    private lateinit var appoinmentpage:NavigationView
+    private lateinit var aboutpage:NavigationView
+
 
     private val permissions = arrayOf(
             android.Manifest.permission.CAMERA,
@@ -42,4 +50,7 @@ class DashboardActivity : AppCompatActivity() {
         }
         return hasPermission
     }
+
+
+
     }
