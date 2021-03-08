@@ -23,7 +23,7 @@ interface UserAPI {
     @FormUrlEncoded
     @POST("login")
     suspend fun loginUser(
-        @Field("username") username: String,
+        @Field("username") Username: String,
         @Field("password") password: String
 
 

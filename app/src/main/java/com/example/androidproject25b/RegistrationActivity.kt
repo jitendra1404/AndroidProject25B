@@ -30,7 +30,7 @@ class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
-        username = findViewById(R.id.edUsername)
+        username = findViewById(R.id.edRegisterUsername)
         email = findViewById(R.id.edEmail)
         mobile = findViewById(R.id.edmobile)
         address = findViewById(R.id.edAddress)

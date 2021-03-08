@@ -38,7 +38,7 @@
             app:srcCompat="@drawable/userregister" />
 
         <EditText
-            android:id="@+id/edUsername"
+            android:id="@+id/edRegisterUsername"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="25dp"
@@ -67,7 +67,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.263"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edUsername"
+            app:layout_constraintTop_toBottomOf="@+id/edRegisterUsername"
             android:drawableLeft="@drawable/emailuser" />
 
         <EditText

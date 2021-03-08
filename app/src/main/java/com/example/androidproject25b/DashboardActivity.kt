@@ -36,7 +36,6 @@ class DashboardActivity : AppCompatActivity() {
             true
         }
 
-
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -45,10 +44,6 @@ class DashboardActivity : AppCompatActivity() {
             transaction.replace(R.id.fragment_container, fragment)
             transaction.commit()
         }
-
-
-        
-
 
     }
 
