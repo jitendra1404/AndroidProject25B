@@ -12,20 +12,18 @@ interface UserAPI {
 
     // register user
 
-    @POST("register")
+    @POST("/user/register")
     suspend fun registerUser(
             @Body user: User
     ): Response<LoginResponse>
 
-
     // login user
 
     @FormUrlEncoded
-    @POST("login")
+    @POST("/user/login")
     suspend fun loginUser(
-        @Field("username") Username: String,
+        @Field("username") username: String,
         @Field("password") password: String
-
 
     ):Response<LoginResponse>
 }
