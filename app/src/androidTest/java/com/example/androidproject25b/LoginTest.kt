@@ -29,7 +29,6 @@ class LoginTest {
         onView(withId(R.id.edUserName))
             .perform(typeText("kishan"))
 
-
         onView(withId(R.id.edloginpassword))
             .perform(typeText("kishan"))
 

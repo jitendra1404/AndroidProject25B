@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,126 +7,90 @@
     android:orientation="vertical"
     android:background="@color/teal_700"
     android:layout_height="match_parent">
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="250dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_height="250dp"
+        app:srcCompat="@drawable/laptoplogos" />
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        tools:context=".LoginActivity"
+        android:layout_marginTop="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/edUserName"
-            android:layout_width="315dp"
-            android:layout_height="52dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
-            android:layout_marginTop="50dp"
             android:drawableStart="@drawable/user"
             android:ems="10"
             android:hint="   UserName "
             android:inputType="textEmailAddress"
-            android:textColor="#FFEB3B"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:drawableLeft="@drawable/user" />
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/edloginpassword"
-            android:layout_width="313dp"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="50dp"
-            android:ems="10"
-            android:hint=" Password"
-            android:inputType="textPassword"
-            android:padding="5dp"
-            android:maxLength="8"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.505"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edUserName"
-            app:layout_constraintVertical_bias="0.1"
-            android:drawableLeft="@drawable/confirmpassword" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="17dp"
-            android:text="Forget Password"
-            android:padding="5dp"
-            android:textSize="13dp"
-            app:layout_constraintBottom_toTopOf="@+id/btnSingIn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.795"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="158dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:text="Remember Username"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toStartOf="@+id/textView2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edloginpassword" />
-
-        <Button
-            android:id="@+id/btnSingIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="40dp"
-            android:padding="10dp"
-            android:text=" Sign In "
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
+            android:layout_marginHorizontal="50dp"
+            android:drawableStart="@drawable/Pass"
+            android:ems="10"
+            android:hint="   Password "
+            android:inputType="textEmailAddress"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edloginpassword"
-            app:layout_constraintVertical_bias="0.303" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="291dp"
-            android:layout_height="211dp"
-            android:layout_marginBottom="30dp"
-            app:layout_constraintBottom_toTopOf="@+id/edUserName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/laptoplogos" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="280dp"
-            android:layout_height="38dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="13dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnSingIn"
-            app:layout_constraintVertical_bias="0.25">
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:text="Forget Password"
+      android:layout_gravity="right"
+        android:textSize="15dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSingIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.795"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Don't have an account?"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="17sp" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txt_sign_up"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:padding="5dp"
-                android:text="SingUp "
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="17sp"
-                android:layout_marginLeft="5dp" />
+    <Button
+        android:id="@+id/btnSingIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:padding="10dp"
+        android:text=" Sign In "
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edloginpassword"
+        app:layout_constraintVertical_bias="0.303" />
 
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+
+</LinearLayout>
+
+
