@@ -45,7 +45,7 @@
         <activity android:name=".AddAppointmentActivity" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".RegistrationActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,7 +53,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashActivity" />
+
     </application>
 
 </manifest>
