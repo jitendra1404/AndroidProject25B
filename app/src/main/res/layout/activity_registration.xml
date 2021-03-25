@@ -109,6 +109,7 @@
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
             app:boxStrokeColor="@color/black"
+            app:endIconMode="password_toggle"
             android:layout_marginHorizontal="15dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_height="wrap_content">
@@ -129,6 +130,7 @@
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
             app:boxStrokeColor="@color/black"
+            app:endIconMode="password_toggle"
             android:layout_marginHorizontal="15dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_height="wrap_content">

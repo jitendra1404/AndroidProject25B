@@ -15,9 +15,10 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="380dp"
+        android:layout_width="420dp"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="0dp"
+        android:scaleType="centerInside"
         android:layout_height="250dp"
         app:srcCompat="@drawable/loginuser" />
 
@@ -48,6 +49,7 @@
         android:layout_marginTop="20dp"
         app:boxStrokeColor="@color/black"
         android:layout_marginHorizontal="15dp"
+        app:endIconMode="password_toggle"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_height="wrap_content">
 
@@ -109,7 +111,7 @@
             android:layout_marginTop="10dp"
             android:text=" Don't have an account? SingUp "
             android:textColor="@color/black"
-            android:textSize="17sp" />
+            android:textSize="22sp" />
 </LinearLayout>
 </ScrollView>
 
