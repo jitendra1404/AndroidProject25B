@@ -125,7 +125,7 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(
                         Intent(
                             this@LoginActivity,
-                            NavDrawerActivity::class.java
+                            DashboardActivity::class.java
                         )
                     )
                     finish()

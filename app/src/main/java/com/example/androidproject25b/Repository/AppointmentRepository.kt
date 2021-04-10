@@ -6,7 +6,7 @@ import com.example.androidproject25b.Entity.Appointment
 import com.example.androidproject25b.api.AppointmentAPI
 import com.example.androidproject25b.api.MyAPIRequest
 import com.example.androidproject25b.api.ServiceBuilder
-import com.example.androidproject25b.db.AppointmentDB
+
 import com.example.androidproject25b.response.AddAppointmentResponse
 import com.example.androidproject25b.response.AppointmentResponse
 import com.example.androidproject25b.response.DeleteAppointmentResponse
