@@ -1,11 +1,16 @@
 package com.example.androidproject25b
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import com.example.androidproject25b.Entity.NotificationChannel
 import com.example.androidproject25b.Entity.User
 import com.example.androidproject25b.Repository.UserRepository
 import com.example.androidproject25b.api.ServiceBuilder
@@ -39,6 +44,8 @@ class RegistrationActivity : AppCompatActivity() {
         signUp = findViewById(R.id.btnSingUP)
 
         signUp.setOnClickListener {
+
+            lowPriorityNotification()
 
             val username = username.text.toString()
             val address = address.text.toString()
@@ -97,6 +104,24 @@ class RegistrationActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun lowPriorityNotification() {
+
+            val notificationManager = NotificationManagerCompat.from(this)
+
+            val notificationChannels = NotificationChannel(this)
+            notificationChannels.createNotificationChannels()
+
+            val notification = NotificationCompat.Builder(this,notificationChannels.CHANNEL_2)
+                .setSmallIcon(R.drawable.ic_baseline_message_24)
+                .setContentTitle("Low priority notification")
+                .setContentText("User Successfully Register")
+                .setColor(Color.BLUE)
+                .build()
+
+            notificationManager.notify(2, notification)
+
+        }
 }
 
 

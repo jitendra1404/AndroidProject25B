@@ -3,11 +3,16 @@ package com.example.androidproject25b
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.View
 import android.widget.*
 import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import com.example.androidproject25b.Entity.NotificationChannel
 //import com.example.androidproject25b.Entity.User
 import com.example.androidproject25b.Repository.UserRepository
 import com.example.androidproject25b.api.ServiceBuilder
@@ -52,6 +57,7 @@ class LoginActivity : AppCompatActivity() {
         checkRunTimePermission()
         btnLogin.setOnClickListener {
             login()
+            highPriorityNotification()
 //            saveSharePref()
 
         }
@@ -60,6 +66,23 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this@LoginActivity, RegistrationActivity::class.java))
         }
     }
+
+    private fun highPriorityNotification() {
+            val notificationManager = NotificationManagerCompat.from(this)
+
+            val notificationChannels = NotificationChannel(this)
+            notificationChannels.createNotificationChannels()
+
+            val notification = NotificationCompat.Builder(this,notificationChannels.CHANNEL_1)
+                .setSmallIcon(R.drawable.ic_baseline_message_24)
+                .setContentTitle("High priority notification")
+                .setContentText("User successfully Login")
+                .setColor(Color.BLUE)
+                .build()
+
+            notificationManager.notify(1, notification)
+        }
+
 
     private fun checkRunTimePermission() {
         if (!hasPermission()) {
@@ -89,6 +112,56 @@ class LoginActivity : AppCompatActivity() {
         )
     }
 
+
+    private fun login() {
+        val U_name = etUsername.text.toString()
+        val U_password = etPassword.text.toString()
+
+//        var user: User? = null
+        CoroutineScope(Dispatchers.IO).launch {
+
+            try {
+                val repository = UserRepository()
+                val response = repository.loginUser(U_name, U_password)
+                if (response.success == true) {
+                    ServiceBuilder.token = "Bearer " + response.token
+
+                    startActivity(
+                        Intent(
+                            this@LoginActivity,
+                           DashboardActivity::class.java
+                        )
+                    )
+                    finish()
+                }
+            } catch (ex: Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(
+                        this@LoginActivity,
+                        ex.toString(), Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //    private fun saveSharePref() {
 //        val Username = etUsername.text.toString()
 //        val Password = etPassword.text.toString()
@@ -109,86 +182,5 @@ class LoginActivity : AppCompatActivity() {
 //            .show()
 //    }
 
-    private fun login() {
-        val U_name = etUsername.text.toString()
-        val U_password = etPassword.text.toString()
 
-//        var user: User? = null
-        CoroutineScope(Dispatchers.IO).launch {
-
-            try {
-                val repository = UserRepository()
-                val response = repository.loginUser(U_name, U_password)
-                if (response.success == true) {
-                    ServiceBuilder.token = "Bearer " + response.token
-
-                    startActivity(
-                        Intent(
-                            this@LoginActivity,
-                            DashboardActivity::class.java
-                        )
-                    )
-                    finish()
-                }
-            } catch (ex: Exception) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        ex.toString(), Toast.LENGTH_SHORT
-                    ).show()
-                }
-
-            }
-        }
-    }
-}
-
-
-//user = UserDB.getInstance(this@LoginActivity).getUserDAO().checkUser(U_name, U_password)
-//
-//            if (user == null)
-//                withContext(Dispatchers.Main) {
-//                    Toast.makeText(this@LoginActivity, "Invalid Credentials", Toast.LENGTH_SHORT)
-//                        .show()
-//                }
-//      else {
-//          startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
-//            }
-
-
-//
-//                }
-//            } catch (ex: Exception) {
-////                withContext(Dispatchers.Main) {
-////                    Toast.makeText(this@LoginActivity, "Login Fail", Toast.LENGTH_SHORT).show()
-////                }
-////            }
-
-//            user = UserDB.getInstance(this@LoginActivity)
-//                .getUserDAO().checkUser(U_name, U_password)
-//
-//            if (user == null) {
-//                withContext(Dispatchers.Main) {
-//                    Toast.makeText(this@LoginActivity, "Invalid credentials", Toast.LENGTH_SHORT)
-//                        .show()
-//                }
-//            } else {
-//
-//                val intent = (Intent(this@LoginActivity, DashboardActivity::class.java))
-//                startActivity(intent)
-//            }
-
-
-
-//                else {
-//                    withContext(Dispatchers.Main) {
-//                        val snack = Snackbar.make(
-////                            linearLayout,
-//                            "Invalid Credentials", Snackbar.LENGTH_LONG
-//                        )
-//                        snack.setAction("Ok", View.OnClickListener {
-//                            snack.dismiss()
-//                        })
-//                        snack.show()
-//                    }
 
