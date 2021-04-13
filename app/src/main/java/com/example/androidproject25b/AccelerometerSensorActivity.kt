@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
+import com.example.androidproject25b.R
 
 class AccelerometerSensorActivity : AppCompatActivity(), SensorEventListener {
 
