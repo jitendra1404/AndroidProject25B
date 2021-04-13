@@ -23,7 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidProject25B"
         android:usesCleartextTraffic="true">
-        <activity android:name=".GyroscopeSensorActivity"></activity>
+<!--        <activity android:name=".GyroscopeSensorActivity"></activity>-->
         <!-- <activity android:name=".ProximitySensorActivity"></activity> -->
         <!-- <activity android:name=".LightSensorActivity"></activity> -->
         <!-- <activity android:name=".AccelerometerSensorActivity"></activity> -->
@@ -50,7 +50,8 @@
         <activity android:name=".SplashActivity" />
         <activity android:name=".AccelerometerSensorActivity" />
         <activity android:name=".LightSensorActivity" />
-        <activity android:name=".ProximitySensorActivity">
+        <activity android:name=".ProximitySensorActivity"/>
+        <activity android:name=".GyroscopeSensorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

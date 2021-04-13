@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/box_inset_layout_padding"
+    android:orientation="vertical"
+    tools:context=".LoginActivity"
+    tools:deviceIds="wear">
+
+
+        <EditText
+            android:id="@+id/edUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:drawableStart="@drawable/profileuser"
+            android:drawablePadding="18dp"
+            android:textSize="10sp"
+            android:hint="User Name "
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/edloginpassword"
+            android:layout_width="match_parent"
+            android:drawablePadding="18dp"
+            android:textSize="10sp"
+            android:drawableStart="@drawable/passwordtext"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Password "
+            android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btnSingIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:backgroundTint="#171701"
+        android:text=" Sign In "
+        android:layout_marginTop="5dp" />
+
+
+
+</LinearLayout>

@@ -1,2 +1,3 @@
+include ':laptoprepairwear'
 include ':app'
 rootProject.name = "AndroidProject25B"
