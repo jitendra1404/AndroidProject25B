@@ -1,87 +1,65 @@
 package com.example.androidproject25b
 
 import android.content.Intent
-import android.content.pm.PackageManager
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.widget.Button
-import androidx.core.app.ActivityCompat
-import androidx.fragment.app.Fragment
-
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageButton
+import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.activity_dashboard.*
 
-class DashboardActivity : AppCompatActivity() {
-    
+class DashboardActivity : AppCompatActivity(),SensorEventListener {
+
+    private lateinit var tvProximitySensor: TextView
+    private lateinit var sensorManager: SensorManager
+    private var sensor: Sensor? = null
+
+    private lateinit var googlemap :AppCompatImageButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
+        tvProximitySensor = findViewById(R.id.tvProximitySensor)
+        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
 
+        if (!checkSensor())
+            return
+        else {
+            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
+            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
+        }
+
+        googlemap =findViewById(R.id.btnGoogleMap)
+
+        googlemap.setOnClickListener {
+            startActivity(Intent(this@DashboardActivity,MapsActivity::class.java))
+        }
     }
 
+    private fun checkSensor(): Boolean {
+        var flag = true
+        if (sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY) == null) {
+            flag = false
+        }
+        return flag
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        val values = event!!.values[0]
+
+        if(values<=4)
+            tvProximitySensor.text = "Object is near"
+        else
+            tvProximitySensor.text = "Object is far"
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    private val permissions = arrayOf(
-//            android.Manifest.permission.CAMERA,
-//            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-//            android.Manifest.permission.ACCESS_FINE_LOCATION
-
-//    )
-
-
-//        if (!hasPermission()) {
-//            requestPermission()
-//
-//        }
-
-
-
-
-//    private fun requestPermission() {
-//            ActivityCompat.requestPermissions(
-//                    this@DashboardActivity,
-//                    permissions, 1
-//            )
-//    }
-//    private fun hasPermission(): Boolean {
-//        var hasPermission = true
-//        for (permission in permissions) {
-//            if (ActivityCompat.checkSelfPermission(
-//                            this,
-//                            permission
-//                    ) != PackageManager.PERMISSION_GRANTED
-//            ) {
-//                hasPermission = false
-//            }
-//        }
-//        return hasPermission
-//    }
-
-
-

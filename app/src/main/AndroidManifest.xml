@@ -24,6 +24,7 @@
         android:theme="@style/Theme.AndroidProject25B"
         android:usesCleartextTraffic="true">
 
+        <activity android:name=".DashboardActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -42,10 +43,8 @@
         <activity android:name=".ViewAppointmentActivity" />
         <activity android:name=".UpdateAppointmentActivity" />
         <activity android:name=".AddAppointmentActivity" />
-        <activity android:name=".DashboardActivity" />
         <activity android:name=".RegistrationActivity" />
-
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

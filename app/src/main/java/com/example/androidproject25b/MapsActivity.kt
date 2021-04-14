@@ -2,6 +2,7 @@ package com.example.androidproject25b
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Transformations.map
 import com.bumptech.glide.request.transition.BitmapTransitionFactory
 import com.google.android.gms.maps.*
 
@@ -19,7 +20,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         setContentView(R.layout.activity_maps)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
+            .findFragmentById(R.id.mapView) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
