@@ -23,10 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidProject25B"
         android:usesCleartextTraffic="true">
-<!--        <activity android:name=".GyroscopeSensorActivity"></activity>-->
-<!--         <activity android:name=".ProximitySensorActivity"></activity> -->
-<!--         <activity android:name=".LightSensorActivity"></activity> -->
-<!--         <activity android:name=".AccelerometerSensorActivity"></activity> -->
+
         <activity android:name=".DashboardActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -47,12 +44,8 @@
         <activity android:name=".UpdateAppointmentActivity" />
         <activity android:name=".AddAppointmentActivity" />
         <activity android:name=".RegistrationActivity" />
-        <activity android:name=".SplashActivity" />
-        <activity android:name=".GyroscopeSensorActivity"/>
-        <activity android:name=".ProximitySensorActivity"/>
-        <activity android:name=".LightSensorActivity"/>
-        <activity android:name=".AccelerometerSensorActivity">
-        <intent-filter>
+        <activity android:name=".SplashActivity" >
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
