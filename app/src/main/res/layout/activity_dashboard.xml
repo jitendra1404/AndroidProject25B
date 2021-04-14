@@ -54,4 +54,8 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Dashboard Activity"
+        android:layout_height="wrap_content"/>
 
