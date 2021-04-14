@@ -7,6 +7,7 @@ import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.androidproject25b.R
 
 class GyroscopeSensorActivity : AppCompatActivity(), SensorEventListener {
 
