@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/dashboard"
+        android:icon="@drawable/dashboard"
+        android:checked="true"
+        android:title="Dashboard"/>
+
+    <item
+        android:id="@+id/appointment"
+        android:icon="@drawable/appointment"
+        android:checked="true"
+        android:title="Appointment"/>
+
+    <item
+        android:id="@+id/product"
+        android:icon="@drawable/shipping"
+        android:checked="true"
+        android:title="Product"/>
+
+    <item
+        android:id="@+id/review"
+        android:checked="true"
+        android:icon="@drawable/customerreview"
+        android:title="Review"/>
+
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/about_3697"
+        android:checked="true"
+        android:title="About Us"/>
+</menu>
