@@ -1,2 +1,0 @@
-com/example/laptoprepairwear/BuildConfig.java
- com.example.laptoprepairwear.BuildConfig

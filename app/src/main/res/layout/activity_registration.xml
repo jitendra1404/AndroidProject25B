@@ -12,173 +12,159 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/Image"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:baselineAligned="false"
+        android:text="𝑅𝑒𝑔𝒾𝓈𝓉𝓇𝒶𝓉𝒾☯𝓃 "
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="1dp"
+        app:boxStrokeColor="@color/black">
+
+        <EditText
+            android:id="@+id/edRegisterUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/blackuser"
+            android:drawablePadding="18dp"
+            android:ems="10"
+            android:hint="User Name"
+            android:inputType="text"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="10dp"
+        app:boxStrokeColor="@color/black">
+
+        <EditText
+            android:id="@+id/edEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/usermail"
+            android:drawablePadding="18dp"
+            android:ems="10"
+            android:hint="Email Address"
+            android:inputType="textEmailAddress"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="10dp"
+        app:boxStrokeColor="@color/black">
+
+        <EditText
+            android:id="@+id/edAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/useraddress"
+            android:drawablePadding="18dp"
+            android:ems="10"
+            android:hint="Address "
+            android:inputType="text"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="text"
+        android:maxLength="10">
+
+        <EditText
+            android:id="@+id/edmobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/usermobile"
+            android:drawablePadding="18dp"
+            android:ems="10"
+            android:hint="   Phone Number "
+            android:inputType="phone"
+            android:maxLength="10"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        app:boxStrokeColor="@color/black"
+        app:endIconMode="password_toggle"
+        android:layout_marginHorizontal="15dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/Image"
+        <EditText
+            android:id="@+id/edPassword"
             android:layout_width="match_parent"
-            android:layout_height="55sp"
-            android:text="𝑅𝑒𝑔𝒾𝓈𝓉𝓇𝒶𝓉𝒾☯𝓃 "
-            android:textAlignment="center"
-            android:textSize="40sp"
-            android:textColor="@color/black"
-            android:layout_marginHorizontal="15dp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="1dp"
-            app:boxStrokeColor="@color/black"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginHorizontal="15dp"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/edRegisterUsername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:drawablePadding="18dp"
-                android:textSize="20sp"
-                android:inputType="text"
-                android:drawableStart="@drawable/blackuser"
-                android:hint="User Name" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            app:boxStrokeColor="@color/black"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginHorizontal="15dp"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/edEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:drawablePadding="18dp"
-                android:textSize="20sp"
-                android:inputType="textEmailAddress"
-                android:hint="Email Address"
-                android:drawableLeft="@drawable/usermail" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            app:boxStrokeColor="@color/black"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginHorizontal="15dp"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/edAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:drawablePadding="18dp"
-                android:textSize="20sp"
-                android:drawableStart="@drawable/useraddress"
-                android:inputType="text"
-                android:hint="Address " />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-
-            android:layout_marginHorizontal="30dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:ems="10"
-            android:padding="10dp"
-            android:drawableStart="@drawable/mobile_phone"
-            android:inputType="text"
-            android:maxLength="10"
-            android:hint="   Mobile NUmber "
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.263"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edAddress"
-            android:drawableLeft="@drawable/mobile_phone" />
+            android:drawablePadding="18dp"
+            android:textSize="20sp"
+            android:drawableStart="@drawable/userpasswordicon"
+            android:inputType="textPassword"
+            android:hint="  Password" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            android:layout_marginTop="10dp"
-            app:boxStrokeColor="@color/black"
-            android:layout_marginHorizontal="15dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/edmobile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:drawablePadding="18dp"
-                android:textSize="20sp"
-                android:drawableStart="@drawable/usermobile"
-                android:inputType="phone"
-                android:maxLength="10"
-                android:hint="   Phone Number " />
-        </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        app:boxStrokeColor="@color/black"
+        app:endIconMode="password_toggle"
+        android:layout_marginHorizontal="15dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_height="wrap_content">
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            app:boxStrokeColor="@color/black"
-            app:endIconMode="password_toggle"
-            android:layout_marginHorizontal="15dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/edPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:drawablePadding="18dp"
-                android:textSize="20sp"
-                android:drawableStart="@drawable/userpasswordicon"
-                android:inputType="textPassword"
-                android:hint="  Password" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            app:boxStrokeColor="@color/black"
-            app:endIconMode="password_toggle"
-            android:layout_marginHorizontal="15dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/edConfirmPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:drawablePadding="18dp"
-                android:textSize="20sp"
-                android:drawableStart="@drawable/userpasswordicon"
-                android:inputType="textPassword"
-                android:hint="   Confirm Password" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/btnSingUP"
+        <EditText
+            android:id="@+id/edConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50dp"
-            android:backgroundTint="#0C0C01"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/white"
-            android:text=" Sign Up" />
-        <Button
-            android:id="@+id/tvAccelerometerSensor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50dp"
-            android:backgroundTint="#0C0C01"
-            android:textColor="@color/white" />
+            android:ems="10"
+            android:drawablePadding="18dp"
+            android:textSize="20sp"
+            android:drawableStart="@drawable/userpasswordicon"
+            android:inputType="textPassword"
+            android:hint="   Confirm Password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnSingUP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:backgroundTint="#0C0C01"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/white"
+        android:text=" Sign Up" />
+    <Button
+        android:id="@+id/tvAccelerometerSensor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:backgroundTint="#0C0C01"
+        android:textColor="@color/white" />
 
     </LinearLayout>
+
 </ScrollView>

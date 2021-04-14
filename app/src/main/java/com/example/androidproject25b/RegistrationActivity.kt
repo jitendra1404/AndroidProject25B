@@ -68,17 +68,6 @@ class RegistrationActivity : AppCompatActivity(),SensorEventListener {
             )
         }
 
-
-
-
-
-
-
-
-
-
-
-
         username = findViewById(R.id.edRegisterUsername)
         email = findViewById(R.id.edEmail)
         mobile = findViewById(R.id.edmobile)
