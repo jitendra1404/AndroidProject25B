@@ -86,6 +86,22 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
+
+            android:layout_marginHorizontal="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:padding="10dp"
+            android:drawableStart="@drawable/mobile_phone"
+            android:inputType="text"
+            android:maxLength="10"
+            android:hint="   Mobile NUmber "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.263"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edAddress"
+            android:drawableLeft="@drawable/mobile_phone" />
+
             android:layout_marginTop="10dp"
             app:boxStrokeColor="@color/black"
             android:layout_marginHorizontal="15dp"
@@ -103,6 +119,7 @@
                 android:maxLength="10"
                 android:hint="   Phone Number " />
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

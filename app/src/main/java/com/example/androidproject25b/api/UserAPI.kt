@@ -17,12 +17,15 @@ interface UserAPI {
             @Body user: User
     ): Response<LoginResponse>
 
-
     // login user
 
     @FormUrlEncoded
     @POST("/user/login")
     suspend fun loginUser(
+
+        @Field("username") username: String,
+        @Field("password") password: String
+
         @Field("custo_name") Username: String,
         @Field("custo_password") password: String
 

@@ -16,7 +16,7 @@ class UserMaanagmentTest {
 
     fun checkLogin() = runBlocking {
         userRepository = UserRepository()
-        val response=userRepository.loginUser("ashish", "ashish")
+        val response=userRepository.loginUser("kishan", "kishan")
         val ExpectedResult=true
         val ActualResult=response.success
         Assert.assertEquals(ExpectedResult, ActualResult)
@@ -26,7 +26,7 @@ class UserMaanagmentTest {
 
     fun checkRegister() = runBlocking {
 
-       val user = User(custo_name = "ashish1234", custo_password = "ashish", custo_email ="ashish1@gmail.com", custo_mobile = "9807278869", custo_address = "chitwan")
+       val user = User(custo_name = "kishan1234", custo_password = "kishan", custo_email ="kishan9999@gmail.com", custo_mobile = "9807278869", custo_address = "Jaipur")
 
         userRepository = UserRepository()
         val response =userRepository.registerUser(user)
