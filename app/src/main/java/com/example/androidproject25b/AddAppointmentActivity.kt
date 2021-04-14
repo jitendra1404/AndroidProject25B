@@ -18,6 +18,9 @@ class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_appointment)
 
+
+        // this is appointment activity//
+
         tvGyroscopeSensor = findViewById(R.id.tvGyroscopeSensor)
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
 
@@ -46,6 +49,7 @@ class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+
 
     }
 }
