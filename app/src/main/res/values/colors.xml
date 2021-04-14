@@ -2,10 +2,14 @@
 <resources>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_700">#FF37</color>
-    <color name="teal">#FF018786</color>
+    <color name="teal">#fc9003</color>
     <color name="black">#FF000000</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#018E8D</color>
+    <color name="teal_200">#fcba03</color>
+    <color name="teal_700">#a9fc03</color>
     <color name="white">#FFFFFFFF</color>
     <color name="teal_7">#018E8D</color>
+    <color name="tear_5">#2e8bc9</color>
+    <color name="tear_4">#952ec9</color>
+    <color name="teal_3">#9e2390</color>
+    <color name="tear_2">#cc2d67</color>
 </resources>

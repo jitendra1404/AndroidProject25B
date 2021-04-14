@@ -9,10 +9,20 @@
     android:layout_height="match_parent"
     tools:context=".SplashActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Lαρƚσρ Mαɾɱαƚ Sҽɯα"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:layout_height="wrap_content"/>
+
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/splash" />
+        android:layout_width="380dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/mainprofile" />
 
     <TextView
         android:textSize="20sp"
