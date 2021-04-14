@@ -38,6 +38,19 @@
         app:menu="@menu/bottom_navigation"
         />
 
+    <TextView
+        android:id="@+id/tvProximitySensor"
+        android:layout_width="348dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="72dp"
+        android:gravity="center"
+        android:background="#454"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -67,7 +67,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginTop="5dp"
@@ -112,6 +112,17 @@
             android:text=" Don't have an account? SingUp "
             android:textColor="@color/black"
             android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/tvLight"
+        android:layout_width="348dp"
+        android:layout_height="53dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </LinearLayout>
 </ScrollView>
 

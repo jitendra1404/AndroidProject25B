@@ -4,11 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -24,7 +29,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(),SensorEventListener {
+
+    private lateinit var sensorManager: SensorManager
+    private var brightness: Sensor? = null
+    private lateinit var tvlight: TextView
 
 
     private val permissions = arrayOf(
@@ -43,6 +52,13 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
+        tvlight = findViewById(R.id.tvLight)
+
+        setUpSensorStuff()
+
 
         etUsername = findViewById(R.id.edUserName)
         etPassword = findViewById(R.id.edloginpassword)
@@ -65,6 +81,12 @@ class LoginActivity : AppCompatActivity() {
 //            getSharePref()
             startActivity(Intent(this@LoginActivity, RegistrationActivity::class.java))
         }
+    }
+
+    private fun setUpSensorStuff() {
+        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
+
+        brightness = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
     }
 
     private fun highPriorityNotification() {
@@ -144,6 +166,41 @@ class LoginActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        if (event?.sensor?.type == Sensor.TYPE_LIGHT) {
+            val light1 = event.values[0]
+
+            tvlight.text = "Sensor: $light1\n${brightness(light1)}"
+        }
+    }
+
+    private fun brightness(brightness: Float): String {
+
+        return when (brightness.toInt()) {
+            0 -> "Pitch black"
+            in 1..10 -> "Dark"
+            in 11..50 -> "Grey"
+            in 51..5000 -> "Normal"
+            in 5001..25000 -> "Incredibly bright"
+            else -> "This light will blind you"
+        }
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+        return
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Register a listener for the sensor.
+        sensorManager.registerListener(this, brightness, SensorManager.SENSOR_DELAY_NORMAL)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        sensorManager.unregisterListener(this)
     }
 
 }
