@@ -23,7 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidProject25B"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".TabActivity"></activity>
         <activity android:name=".DashboardActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -40,11 +40,10 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".ViewAppointmentActivity" />
         <activity android:name=".UpdateAppointmentActivity" />
         <activity android:name=".AddAppointmentActivity" />
         <activity android:name=".RegistrationActivity" />
-        <activity android:name=".SplashActivity" >
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

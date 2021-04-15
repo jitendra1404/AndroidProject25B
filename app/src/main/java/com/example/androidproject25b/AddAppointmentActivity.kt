@@ -6,9 +6,27 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+import android.widget.*
+import com.example.androidproject25b.Entity.Appointment
+import com.example.androidproject25b.Repository.AppointmentRepository
+import com.example.androidproject25b.db.AppointmentDB
+import com.google.android.material.textfield.TextInputEditText
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Exception
 
 class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
+
+
+    private lateinit var etdevicename: EditText
+    private lateinit var etdevicemodel: EditText
+    private lateinit var etappointmentdate: EditText
+    private lateinit var etlocation: EditText
+    private lateinit var etissue: EditText
+    private lateinit var btnsubmit: Button
+
 
     private lateinit var tvGyroscopeSensor: TextView
     private lateinit var sensorManager: SensorManager
@@ -18,6 +36,16 @@ class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_appointment)
 
+        etdevicename=findViewById(R.id.etdevicename)
+        etdevicemodel=findViewById(R.id.etdevicemodel)
+        etappointmentdate=findViewById(R.id.etappointmentdate)
+        etlocation=findViewById(R.id.etlocation)
+        etissue=findViewById(R.id.etissue)
+        btnsubmit=findViewById(R.id.btnsubmit)
+
+        btnsubmit.setOnClickListener {
+            addAppointment()
+        }
 
         // this is appointment activity//
 
@@ -30,6 +58,56 @@ class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
             sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
             sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
         }
+    }
+
+    private fun addAppointment() {
+        val devicename = etdevicename.text.toString()
+        val devicemodel = etdevicemodel.text.toString()
+        val appointmentdate = etappointmentdate.text.toString()
+        val location = etlocation.text.toString()
+        val issue=etissue.text.toString()
+
+        val appointment = Appointment(
+            devicename = devicename,
+            devicemodel = devicemodel,
+            appointmentdate = appointmentdate,
+            location = location,
+            issue= issue
+        )
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+
+                AppointmentDB
+                    .getInstance(this@AddAppointmentActivity)
+                    .getAppointmentDAO()
+                    .insertAppointment(appointment)
+
+                val donorRepository = AppointmentRepository()
+                val response = donorRepository.addAppointment(appointment)
+                if (response.success == true) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(
+                            this@AddAppointmentActivity,
+                            "Blood Information Added Successfully",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    }
+                }
+            } catch (ex: Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(
+                        this@AddAppointmentActivity,
+                        "Error ${ex.localizedMessage}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                }
+            }
+
+        }
+
+
     }
 
     private fun checkSensor(): Boolean {

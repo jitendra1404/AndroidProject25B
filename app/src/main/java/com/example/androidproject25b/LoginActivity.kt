@@ -208,17 +208,6 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 //    private fun saveSharePref() {
 //        val Username = etUsername.text.toString()
 //        val Password = etPassword.text.toString()

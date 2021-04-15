@@ -5,52 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="130dp"
     android:layout_margin="10dp"
-    android:background="#ADD8E6"
+    android:background="#0B82A8"
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/tvdevice_name"
+        android:id="@+id/tvdevicename"
         android:layout_width="130dp"
         android:layout_height="28dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:text="Device Name"
-
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/tvissue"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvdevice_model"
+        android:id="@+id/tvdevicemodel"
         android:layout_width="130dp"
         android:layout_height="31dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:textStyle="bold"
         android:text="Devive Model"
-        app:layout_constraintBottom_toTopOf="@+id/tvappointment_date"
+        app:layout_constraintBottom_toTopOf="@+id/tvappointmentdate"
         app:layout_constraintEnd_toStartOf="@+id/tvlocation"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvdevice_name" />
+        app:layout_constraintTop_toBottomOf="@+id/tvdevicename" />
 
     <TextView
-        android:id="@+id/tvappointment_date"
+        android:id="@+id/tvappointmentdate"
         android:layout_width="128dp"
         android:layout_height="34dp"
         android:layout_marginTop="8dp"
+        android:textStyle="bold"
         android:text="Date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvlocation"
         app:layout_constraintHorizontal_bias="0.676"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvdevice_model" />
+        app:layout_constraintTop_toBottomOf="@+id/tvdevicemodel" />
 
     <TextView
         android:id="@+id/tvlocation"
         android:layout_width="120dp"
         android:layout_height="30dp"
         android:layout_marginTop="16dp"
+        android:textStyle="bold"
         android:text="Location"
         app:layout_constraintStart_toStartOf="@+id/tvissue"
         app:layout_constraintTop_toBottomOf="@+id/tvissue" />
@@ -60,33 +63,34 @@
         android:layout_width="116dp"
         android:layout_height="32dp"
         android:text="Issues"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.205"
-        app:layout_constraintStart_toEndOf="@+id/tvdevice_model"
+        app:layout_constraintStart_toEndOf="@+id/tvdevicemodel"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.05" />
 
     <ImageButton
-        android:id="@+id/btnDelete"
+        android:id="@+id/btndelete"
         android:layout_width="47dp"
-        android:layout_height="40dp"
+        android:layout_height="46dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/btnupdate"
         app:layout_constraintVertical_bias="0.515"
-        app:srcCompat="@drawable/ic_delete" />
+        app:srcCompat="@drawable/delete" />
 
     <ImageButton
-        android:id="@+id/btnUpdate"
+        android:id="@+id/btnupdate"
         android:layout_width="51dp"
-        android:layout_height="36dp"
+        android:layout_height="46dp"
         android:layout_marginTop="8dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_update" />
+        app:srcCompat="@drawable/update" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

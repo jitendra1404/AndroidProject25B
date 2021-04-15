@@ -15,12 +15,6 @@
         android:title="Appointment"/>
 
     <item
-        android:id="@+id/product"
-        android:icon="@drawable/shipping"
-        android:checked="true"
-        android:title="Product"/>
-
-    <item
         android:id="@+id/review"
         android:checked="true"
         android:icon="@drawable/customerreview"

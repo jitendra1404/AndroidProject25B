@@ -1,9 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#454"
+    android:layout_height="730dp"
     tools:context=".UpdateAppointmentActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="65sp"
+            android:text="𝐀𝐩𝐩𝐨𝐢𝐧𝐭𝐦𝐞𝐧𝐭 Update "
+            android:textAlignment="center"
+            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/etDeviceName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:drawablePadding="18dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:inputType="text"
+                android:drawableStart="@drawable/name"
+                android:hint="Device Name" />
+
+            <EditText
+                android:id="@+id/etDeviceModel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="18dp"
+                android:textSize="20sp"
+                android:inputType="textEmailAddress"
+                android:hint="Model Name"
+                android:drawableLeft="@drawable/model" />
+
+
+            <EditText
+                android:id="@+id/etAppointmentDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:drawablePadding="18dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:drawableStart="@drawable/date"
+                android:inputType="datetime"
+                android:hint="Date " />
+
+            <EditText
+                android:id="@+id/etLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="18dp"
+                android:textSize="20sp"
+                android:drawableStart="@drawable/location"
+                android:hint="   Location " />
+
+
+            <EditText
+                android:id="@+id/etIssue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="18dp"
+                android:textSize="20sp"
+                android:drawableStart="@drawable/issue"
+                android:hint="  Issues" />
+
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:backgroundTint="#0C0C01"
+            android:textSize="25sp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/white"
+            android:text=" Edit" />
+
+
+    </LinearLayout>
+
+</ScrollView>

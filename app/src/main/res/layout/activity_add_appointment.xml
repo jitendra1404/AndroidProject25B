@@ -34,7 +34,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/etdevice_name"
+                android:id="@+id/etdevicename"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/etdevice_model"
+                android:id="@+id/etdevicemodel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/etappointment_date"
+                android:id="@+id/etappointmentdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -123,7 +123,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btnSubmit"
+            android:id="@+id/btnsubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
