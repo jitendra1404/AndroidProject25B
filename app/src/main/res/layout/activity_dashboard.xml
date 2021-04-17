@@ -7,60 +7,51 @@
     android:layout_height="match_parent"
     tools:context="DashboardActivity">
 
-    <Button
-        android:id="@+id/btndashboard"
-        android:layout_width="110dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="4dp"
-        android:text="Dashboard"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnappointment"
-        android:layout_width="110dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:text="Appointment"
-        app:layout_constraintStart_toEndOf="@+id/dashboard"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
+    <ImageView
         android:id="@+id/btnabout"
         android:layout_width="87dp"
         android:layout_height="52dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginTop="4dp"
-        android:text="About"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/appointment"
-        app:layout_constraintTop_toTopOf="parent" />
+       android:src="@drawable/about_3697"
+        app:layout_constraintBottom_toBottomOf="@+id/btnreview"
+        app:layout_constraintStart_toEndOf="@+id/btnreview" />
 
-    <Button
+    <ImageView
         android:id="@+id/btnreview"
         android:layout_width="90dp"
         android:layout_height="52dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:text="Review"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/appointment"
+       android:src="@drawable/review"
+        app:layout_constraintBottom_toBottomOf="@+id/btnappointment"
+        app:layout_constraintStart_toEndOf="@+id/btnappointment" />
+
+    <ImageView
+        android:id="@+id/btnappointment"
+        android:layout_width="110dp"
+        android:layout_height="52dp"
+        android:textAlignment="center"
+        android:src="@drawable/appointment_icon_179680"
+        app:layout_constraintBottom_toBottomOf="@+id/btndashboard"
+        app:layout_constraintStart_toEndOf="@+id/btndashboard" />
+
+    <ImageView
+        android:id="@+id/btndashboard"
+        android:layout_width="110dp"
+        android:layout_height="52dp"
+        android:src="@drawable/ic_dashboard"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearcontainer"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="560dp"
+        android:layout_marginTop="128dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appointment"/>
-
+        app:layout_constraintTop_toBottomOf="@+id/btnappointment" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

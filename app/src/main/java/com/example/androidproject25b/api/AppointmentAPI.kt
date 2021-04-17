@@ -11,21 +11,21 @@ import retrofit2.http.*
 interface AppointmentAPI {
 
     //Add Appointment
-    @POST("bgroup/insert")
+    @POST("Appointment/insert")
     suspend fun addAppointment(
         @Header("Authorization") token:String,
         @Body appointment: Appointment
     ): Response<AddAppointmentResponse>
 
     //Delete Appointment
-    @DELETE("bgroup/delete/{id}")
+    @DELETE("Appointment/delete/{id}")
     suspend fun deleteAppointment(
         @Header("Authorization") token: String,
         @Path("id")id:String
     ): Response<DeleteAppointmentResponse>
 
     //GET all Appointment
-    @GET("bgroup/all")
+    @GET("Appointment/All")
     suspend fun getAllAppointment(
         @Header("Authorization") token : String,
     ): Response<GetAllAppointmentResponse>

@@ -151,7 +151,7 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
                     startActivity(
                         Intent(
                             this@LoginActivity,
-                           DashboardActivity::class.java
+                           TabActivity::class.java
                         )
                     )
                     finish()

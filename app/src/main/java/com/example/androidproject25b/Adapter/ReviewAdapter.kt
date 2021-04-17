@@ -7,77 +7,64 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidproject25b.AddAppointmentActivity
 import com.example.androidproject25b.Entity.Appointment
+import com.example.androidproject25b.Entity.Review
 import com.example.androidproject25b.R
 import com.example.androidproject25b.Repository.AppointmentRepository
+import com.example.androidproject25b.Repository.ReviewRepository
 import com.example.androidproject25b.UpdateAppointmentActivity
 import com.example.androidproject25b.db.AppointmentDB
+import com.example.androidproject25b.db.ReviewDB
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 
-class AppointmentAdapter (
-
+class ReviewAdapter (
     private val context: Context,
-    private val lstAppointment:MutableList<Appointment>
-    ): RecyclerView.Adapter<AppointmentAdapter.AppointmentViewHolder>() {
+    private val lstReview:MutableList<Review>
+): RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>() {
 
-    class AppointmentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ReviewViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         //        val profile: ImageView
-        val device_name: TextView
-        val device_model: TextView
-        val appointment_date: TextView
-        val location: TextView
-        val issue: TextView
-        val update: ImageButton
+        val feedback_title: TextView
+        val feedback_description: TextView
+        val customer_name: TextView
         val delete: ImageButton
 
         init {
 //            profile=view.findViewById(R.id.profile)
-            device_name = view.findViewById(R.id.ttvdevicename)
-            device_model = view.findViewById(R.id.ttvdevicemodel)
-            appointment_date = view.findViewById(R.id.ttvappointmentdate)
-            location = view.findViewById(R.id.ttvlocation)
-            issue = view.findViewById(R.id.ttvissue)
-            update = view.findViewById(R.id.btnupdate)
-            delete = view.findViewById(R.id.btndelete)
+            feedback_title = view.findViewById(R.id.tvFeedbackTitle)
+            feedback_description= view.findViewById(R.id.tvFeedbackDescription)
+            customer_name= view.findViewById(R.id.tvCustomerName)
+            delete = view.findViewById(R.id.btnDelete)
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppointmentViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.custom_appointment_layout, parent, false)
-        return AppointmentViewHolder(view)
+            .inflate(R.layout.custom_review_layout, parent, false)
+        return ReviewAdapter.ReviewViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: AppointmentViewHolder, position: Int) {
-        val appointment = lstAppointment[position]
-        holder.device_name.text = appointment.device_name
-        holder.device_model.text = appointment.device_model
-        holder.appointment_date.text = appointment.appointment_date
-        holder.location.text = appointment.location
-        holder.issue.text = appointment.issue
+    override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
+        val review = lstReview[position]
+        holder.feedback_title.text = review.feedback_title
+        holder.feedback_description.text = review.feedback_description
+        holder.customer_name.text = review.customer_name
 
-        holder.update.setOnClickListener {
-            val intent = Intent(context, UpdateAppointmentActivity::class.java)
-            intent.putExtra("Appointment", appointment)
-            context.startActivity(intent)
-        }
 
         holder.delete.setOnClickListener {
             val builder = AlertDialog.Builder(context)
-            builder.setTitle("Delete ${appointment.device_name}")
-            builder.setMessage("Are you sure do you want to delete ${appointment.device_name} ??")
+            builder.setTitle("Delete ${review.feedback_title}")
+            builder.setMessage("Are you sure do you want to delete ${review.feedback_title} ??")
             builder.setIcon(android.R.drawable.ic_dialog_alert)
             builder.setPositiveButton("Yes") { _, _ ->
-                deleteAppointment(appointment)
+                deleteReview(review)
             }
             builder.setNegativeButton("No") { _, _ ->
                 Toast.makeText(context, "Cancelled", Toast.LENGTH_SHORT).show()
@@ -88,19 +75,19 @@ class AppointmentAdapter (
         }
     }
 
-    private fun deleteAppointment(appointment: Appointment) {
+    private fun deleteReview(review: Review) {
         CoroutineScope(Dispatchers.IO).launch {
-            AppointmentDB.getInstance(context).getAppointmentDAO().deleteAppointment(appointment)
+            ReviewDB.getInstance(context).getReviewDAO().deleteReview(review)
             withContext(Dispatchers.Main) {
                 Toast.makeText(
                     context,
-                    "${appointment.device_name} deleted successfully",
+                    "${review.feedback_title} deleted successfully",
                     Toast.LENGTH_SHORT
                 ).show()
             }
             try {
-                val appointmentRepository = AppointmentRepository()
-                val response = appointmentRepository.deleteAppointment(appointment._id!!)
+                val reviewRepository = ReviewRepository()
+                val response = reviewRepository.deleteReview(review._id!!)
                 if (response.success == true) {
                     withContext(Dispatchers.Main) {
 //                        Toast.makeText(context, "${donor.fullname} deleted successfully", Toast.LENGTH_SHORT)
@@ -108,7 +95,7 @@ class AppointmentAdapter (
 //                    }
 //                }
 //                        withContext(Dispatchers.Main) {
-                        lstAppointment.remove(appointment)
+                        lstReview.remove(review)
                         notifyDataSetChanged()
                     }
                 }
@@ -122,13 +109,11 @@ class AppointmentAdapter (
                 }
             }
         }
+
     }
 
     override fun getItemCount(): Int {
-        return lstAppointment.size
+        return lstReview.size
     }
-
 }
-
-
 

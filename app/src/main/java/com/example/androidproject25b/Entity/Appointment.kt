@@ -9,9 +9,9 @@ import androidx.room.PrimaryKey
 @Entity
 data class Appointment (
     @ColumnInfo(name="_id") val _id:String? = null,
-    @ColumnInfo(name="devicename") val devicename: String? = null,
-    @ColumnInfo(name = "devicemodel") val devicemodel: String? = null,
-    @ColumnInfo(name = "appointmentdate") val appointmentdate: String? = null,
+    @ColumnInfo(name="device_name") val device_name: String? = null,
+    @ColumnInfo(name = "device_model") val device_model: String? = null,
+    @ColumnInfo(name = "appointment_date") val appointment_date: String? = null,
     @ColumnInfo(name = "location") val location: String? = null,
     @ColumnInfo(name = "issue") val issue: String? = null,
 ) :Parcelable {
@@ -31,9 +31,9 @@ data class Appointment (
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(_id)
-        parcel.writeString(devicename)
-        parcel.writeString(devicemodel)
-        parcel.writeString(appointmentdate)
+        parcel.writeString(device_name)
+        parcel.writeString(device_model)
+        parcel.writeString(appointment_date)
         parcel.writeString(location)
         parcel.writeString(issue)
         parcel.writeInt(id)

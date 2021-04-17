@@ -101,6 +101,20 @@
             android:textColor="@color/white"
             android:text=" Edit" />
 
+        <TextView
+            android:id="@+id/tvGyroscopeSensor"
+            android:layout_width="300dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="20sp"
+            android:background="#454"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </LinearLayout>
 

@@ -8,6 +8,7 @@ import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageButton
@@ -20,14 +21,11 @@ import kotlinx.android.synthetic.main.activity_dashboard.*
 
 class DashboardActivity : AppCompatActivity() {
 
-    private lateinit var dashboard: Button
-    private lateinit var appointment: Button
-    private lateinit var review: Button
-    private lateinit var about: Button
+    private lateinit var dashboard: ImageView
+    private lateinit var appointment: ImageView
+    private lateinit var review: ImageView
+    private lateinit var about: ImageView
 
-//    private lateinit var tvProximitySensor: TextView
-//    private lateinit var sensorManager: SensorManager
-//    private var sensor: Sensor? = null
 
     private lateinit var googlemap :AppCompatImageButton
 
@@ -40,7 +38,7 @@ class DashboardActivity : AppCompatActivity() {
         review=findViewById(R.id.btnreview)
         about =findViewById(R.id.btnabout)
 
-        btndashboard.setOnClickListener {
+        dashboard.setOnClickListener {
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.linearcontainer,DashboardActivity())
                 addToBackStack(null)
@@ -69,8 +67,6 @@ class DashboardActivity : AppCompatActivity() {
                 commit()
             }
         }
-
-
 
 
 

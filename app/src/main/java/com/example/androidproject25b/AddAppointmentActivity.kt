@@ -19,16 +19,13 @@ import java.lang.Exception
 
 class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
 
-
     private lateinit var etdevicename: EditText
     private lateinit var etdevicemodel: EditText
     private lateinit var etappointmentdate: EditText
     private lateinit var etlocation: EditText
     private lateinit var etissue: EditText
     private lateinit var btnsubmit: Button
-
-
-    private lateinit var tvGyroscopeSensor: TextView
+    private lateinit var tvproximitySensor: TextView
     private lateinit var sensorManager: SensorManager
     private var sensor: Sensor? = null
 
@@ -49,15 +46,25 @@ class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
 
         // this is appointment activity//
 
-        tvGyroscopeSensor = findViewById(R.id.tvGyroscopeSensor)
+        tvproximitySensor = findViewById(R.id.tvProximitySensor)
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
 
         if (!checkSensor())
             return
         else {
-            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
+            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
             sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
         }
+    }
+
+    private fun checkSensor(): Boolean {
+
+        var flag = true
+        if (sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY) == null) {
+            flag = false
+        }
+        return flag
+
     }
 
     private fun addAppointment() {
@@ -65,12 +72,12 @@ class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
         val devicemodel = etdevicemodel.text.toString()
         val appointmentdate = etappointmentdate.text.toString()
         val location = etlocation.text.toString()
-        val issue=etissue.text.toString()
+        val issue= etissue.text.toString()
 
         val appointment = Appointment(
-            devicename = devicename,
-            devicemodel = devicemodel,
-            appointmentdate = appointmentdate,
+            device_name = devicename,
+            device_model = devicemodel,
+            appointment_date = appointmentdate,
             location = location,
             issue= issue
         )
@@ -82,13 +89,13 @@ class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
                     .getAppointmentDAO()
                     .insertAppointment(appointment)
 
-                val donorRepository = AppointmentRepository()
-                val response = donorRepository.addAppointment(appointment)
+                val appointmentRepository = AppointmentRepository()
+                val response = appointmentRepository.addAppointment(appointment)
                 if (response.success == true) {
                     withContext(Dispatchers.Main) {
                         Toast.makeText(
                             this@AddAppointmentActivity,
-                            "Blood Information Added Successfully",
+                            "New Appointment Added Successfully",
                             Toast.LENGTH_SHORT
                         )
                             .show()
@@ -107,27 +114,21 @@ class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
 
         }
 
-
-    }
-
-    private fun checkSensor(): Boolean {
-        var flag = true
-        if (sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE) == null) {
-            flag = false
-        }
-        return flag
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-        val values = event!!.values[1]
-        if (values < 0)
-            tvGyroscopeSensor.text = "Left"
-        else if (values > 0)
-            tvGyroscopeSensor.text = "Right"
+        val values = event!!.values[0]
+
+        if(values<=10)
+            tvproximitySensor.text = "Object is near"
+        else
+            tvproximitySensor.text = "Object is far"
+
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
 
-
     }
+
+
 }

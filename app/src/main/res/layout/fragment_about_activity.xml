@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,23 +11,41 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Personal Details "
+        android:text="About Profile "
         android:background="#C1D5C1"
         android:textSize="36sp"/>
 
+    <WebView
+        android:id="@+id/WebSite"
+        android:layout_width="match_parent"
+        android:layout_height="680dp"
+        android:layout_above="@+id/logout"
+        android:layout_marginTop="-48dp"
+        android:layout_marginBottom="-59dp"
+        android:background="#C1D5C1"
+        android:textSize="36sp" />
+
     <TextView
-        android:id="@+id/map"
+        android:id="@+id/btnnmap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Map"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="end"
+        android:layout_marginEnd="323dp"
+        android:layout_marginBottom="3dp"
+        android:drawableStart="@drawable/googlrmap"
         android:textSize="25sp" />
 
-    <Button
+    <TextView
         android:id="@+id/logout"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LOG OUT"/>
+        android:layout_height="58dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="end"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="3dp"
+        android:drawableStart="@drawable/logout" />
 
-</LinearLayout>
+</RelativeLayout>

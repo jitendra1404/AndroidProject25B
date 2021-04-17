@@ -3,22 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
-    tools:context=".RegistrationActivity"
-    android:orientation="vertical"
-    android:backgroundTint="#B5AAC5"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:background="#828388"
+    android:layout_height="match_parent"
+    tools:context=".AddReviewActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="65sp"
-            android:text="𝐔𝐬𝐞𝐫 𝐀𝐩𝐩𝐨𝐢𝐧𝐭𝐦𝐞𝐧𝐭"
+            android:text="𝐔𝐬𝐞𝐫 Review"
             android:textAlignment="center"
             android:textSize="40sp"
             android:textColor="@color/black"
@@ -34,15 +33,15 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/etdevicename"
+                android:id="@+id/etCustomerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:drawablePadding="18dp"
                 android:textSize="20sp"
                 android:inputType="text"
-                android:drawableStart="@drawable/name"
-                android:hint="Device Name" />
+                android:drawableStart="@drawable/blackuser"
+                android:hint="Customer Name" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -54,15 +53,15 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/etdevicemodel"
+                android:id="@+id/etFeedbackTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:drawablePadding="18dp"
                 android:textSize="20sp"
-                android:inputType="textEmailAddress"
-                android:hint="Model Name"
-                android:drawableLeft="@drawable/model" />
+                android:inputType="text"
+                android:hint="Feedback Title "
+                android:drawableLeft="@drawable/feedbacktitle" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -74,56 +73,19 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/etappointmentdate"
+                android:id="@+id/etFeedbackDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:drawablePadding="18dp"
                 android:textSize="20sp"
-                android:drawableStart="@drawable/date"
-                android:inputType="datetime"
-                android:hint="Date " />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            app:boxStrokeColor="@color/black"
-            android:layout_marginHorizontal="15dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/etlocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:drawablePadding="18dp"
-                android:textSize="20sp"
-                android:drawableStart="@drawable/location"
-                android:hint="   Location " />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            app:boxStrokeColor="@color/black"
-            android:layout_marginHorizontal="15dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/etissue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:drawablePadding="18dp"
-                android:textSize="20sp"
-                android:drawableStart="@drawable/issue"
-                android:hint="  Issues" />
+                android:drawableStart="@drawable/feedbackdescription"
+                android:inputType="text"
+                android:hint="Feedback Description" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btnsubmit"
+            android:id="@+id/btnAddReview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
@@ -133,19 +95,5 @@
             android:textColor="@color/white"
             android:text=" Submit" />
 
-        <TextView
-            android:id="@+id/tvProximitySensor"
-            android:layout_width="300dp"
-            android:layout_height="43dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:layout_marginHorizontal="20dp"
-            android:textSize="20sp"
-            android:background="#454"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </LinearLayout>
+</LinearLayout>
 </ScrollView>
