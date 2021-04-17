@@ -1,5 +1,6 @@
 package com.example.androidproject25b.response
 
  class DeleteAppointmentResponse(
-    val success:Boolean?=null
+    val success:Boolean?=null,
+
 )

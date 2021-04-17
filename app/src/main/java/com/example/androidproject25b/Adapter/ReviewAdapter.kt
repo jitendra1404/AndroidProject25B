@@ -2,7 +2,6 @@ package com.example.androidproject25b.Adapter
 
 import android.app.AlertDialog
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,13 +9,9 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidproject25b.Entity.Appointment
 import com.example.androidproject25b.Entity.Review
 import com.example.androidproject25b.R
-import com.example.androidproject25b.Repository.AppointmentRepository
 import com.example.androidproject25b.Repository.ReviewRepository
-import com.example.androidproject25b.UpdateAppointmentActivity
-import com.example.androidproject25b.db.AppointmentDB
 import com.example.androidproject25b.db.ReviewDB
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -77,7 +72,7 @@ class ReviewAdapter (
 
     private fun deleteReview(review: Review) {
         CoroutineScope(Dispatchers.IO).launch {
-            ReviewDB.getInstance(context).getReviewDAO().deleteReview(review)
+//            ReviewDB.getInstance(context).getReviewDAO().deleteReview(review)
             withContext(Dispatchers.Main) {
                 Toast.makeText(
                     context,

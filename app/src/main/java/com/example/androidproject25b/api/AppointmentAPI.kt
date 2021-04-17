@@ -4,6 +4,7 @@ import com.example.androidproject25b.Entity.Appointment
 import com.example.androidproject25b.response.AddAppointmentResponse
 import com.example.androidproject25b.response.DeleteAppointmentResponse
 import com.example.androidproject25b.response.GetAllAppointmentResponse
+import com.example.androidproject25b.response.UpdateAppointment
 import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*
@@ -29,6 +30,14 @@ interface AppointmentAPI {
     suspend fun getAllAppointment(
         @Header("Authorization") token : String,
     ): Response<GetAllAppointmentResponse>
+
+    // Update  Appointment
+    @PUT("Appointment/update/{id}")
+    suspend fun putAppointment(
+//        @Header("Authorization") token : String,
+        @Path("id")id:String,
+        @Body appointment: Appointment
+    ): Response<UpdateAppointment>
 
 //    //upload image
 //    @Multipart

@@ -26,6 +26,5 @@ interface UserAPI {
         @Field("custo_name") Username: String,
         @Field("custo_password") password: String
 
-
     ):Response<LoginResponse>
 }

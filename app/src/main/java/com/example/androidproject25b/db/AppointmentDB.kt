@@ -33,7 +33,7 @@ abstract class AppointmentDB:RoomDatabase(){
             Room.databaseBuilder(
                 context.applicationContext,
                 AppointmentDB::class.java,
-                "DonorDB"
+                "AppointmentDB"
             )
                 .fallbackToDestructiveMigration()
                 .build()

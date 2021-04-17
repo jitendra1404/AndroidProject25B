@@ -6,8 +6,7 @@ import com.example.androidproject25b.api.ServiceBuilder
 import com.example.androidproject25b.api.UserAPI
 import com.example.androidproject25b.response.LoginResponse
 
-class UserRepository :
-    MyAPIRequest() {
+class UserRepository:MyAPIRequest() {
 
     val userAPI = ServiceBuilder.buildServices(UserAPI::class.java)
 
@@ -18,7 +17,6 @@ class UserRepository :
             userAPI.registerUser(user)
         }
     }
-
     //login user
 
     suspend fun loginUser(username: String, password: String): LoginResponse {

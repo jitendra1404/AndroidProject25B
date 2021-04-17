@@ -7,11 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidproject25b.AddAppointmentActivity
 import com.example.androidproject25b.Entity.Appointment
 import com.example.androidproject25b.R
 import com.example.androidproject25b.Repository.AppointmentRepository
@@ -90,7 +88,7 @@ class AppointmentAdapter (
 
     private fun deleteAppointment(appointment: Appointment) {
         CoroutineScope(Dispatchers.IO).launch {
-            AppointmentDB.getInstance(context).getAppointmentDAO().deleteAppointment(appointment)
+//            AppointmentDB.getInstance(context).getAppointmentDAO().deleteAppointment(appointment)
             withContext(Dispatchers.Main) {
                 Toast.makeText(
                     context,

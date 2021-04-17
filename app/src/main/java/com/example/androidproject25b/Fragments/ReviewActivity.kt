@@ -10,12 +10,9 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.example.androidproject25b.Adapter.AppointmentAdapter
 import com.example.androidproject25b.Adapter.ReviewAdapter
-import com.example.androidproject25b.AddAppointmentActivity
 import com.example.androidproject25b.AddReviewActivity
 import com.example.androidproject25b.R
-import com.example.androidproject25b.Repository.AppointmentRepository
 import com.example.androidproject25b.Repository.ReviewRepository
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.CoroutineScope

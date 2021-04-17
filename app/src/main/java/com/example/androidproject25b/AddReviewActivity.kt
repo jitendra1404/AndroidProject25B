@@ -5,11 +5,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.androidproject25b.Entity.Appointment
 import com.example.androidproject25b.Entity.Review
-import com.example.androidproject25b.Repository.AppointmentRepository
 import com.example.androidproject25b.Repository.ReviewRepository
-import com.example.androidproject25b.db.AppointmentDB
 import com.example.androidproject25b.db.ReviewDB
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

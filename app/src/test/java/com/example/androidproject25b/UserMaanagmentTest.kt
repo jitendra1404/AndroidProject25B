@@ -1,7 +1,6 @@
 package com.example.androidproject25b
 
 import com.example.androidproject25b.Entity.User
-import com.example.androidproject25b.Repository.UserRepository
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert
 import org.junit.Test

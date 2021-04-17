@@ -9,11 +9,11 @@ object ServiceBuilder {
 //    private const val BASE_URL=  "http://localhost:90/"
 
 
-//    private const val BASE_URL=  "http://10.0.2.2:91/"
+    private const val BASE_URL=  "http://10.0.2.2:91/"
 
-    private const val BASE_URL=  "http://192.168.88.216:91/"
+//    private const val BASE_URL=  "http://192.168.88.216:91/"
 
-//    private const val BASE_URL=  "http://192.168.0.103:91/"
+//    private const val BASE_URL=  "http://172.25.0.77:91/"
 
 
     var token :String?=null

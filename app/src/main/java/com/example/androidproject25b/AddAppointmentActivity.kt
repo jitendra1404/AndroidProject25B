@@ -1,5 +1,7 @@
 package com.example.androidproject25b
 
+import android.content.Context
+import android.graphics.Color
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -10,14 +12,17 @@ import android.widget.*
 import com.example.androidproject25b.Entity.Appointment
 import com.example.androidproject25b.Repository.AppointmentRepository
 import com.example.androidproject25b.db.AppointmentDB
-import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.IOException
 import java.lang.Exception
 
 class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
+
+    private lateinit var sensorManager:SensorManager
+    private lateinit var LightSensor:Sensor
 
     private lateinit var etdevicename: EditText
     private lateinit var etdevicemodel: EditText
@@ -25,9 +30,7 @@ class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
     private lateinit var etlocation: EditText
     private lateinit var etissue: EditText
     private lateinit var btnsubmit: Button
-    private lateinit var tvproximitySensor: TextView
-    private lateinit var sensorManager: SensorManager
-    private var sensor: Sensor? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,30 +43,12 @@ class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
         etissue=findViewById(R.id.etissue)
         btnsubmit=findViewById(R.id.btnsubmit)
 
+        sensorManager=getSystemService(Context.SENSOR_SERVICE)as SensorManager
+        LightSensor=sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT)
+
         btnsubmit.setOnClickListener {
             addAppointment()
         }
-
-        // this is appointment activity//
-
-        tvproximitySensor = findViewById(R.id.tvProximitySensor)
-        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
-
-        if (!checkSensor())
-            return
-        else {
-            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
-            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
-        }
-    }
-
-    private fun checkSensor(): Boolean {
-
-        var flag = true
-        if (sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY) == null) {
-            flag = false
-        }
-        return flag
 
     }
 
@@ -116,19 +101,31 @@ class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        sensorManager!!.registerListener(this,LightSensor,SensorManager.SENSOR_DELAY_NORMAL)
+    }
+    override fun onPause() {
+        super.onPause()
+        sensorManager!!.unregisterListener(this)
+    }
+
+    var isRunning=false
+
     override fun onSensorChanged(event: SensorEvent?) {
-        val values = event!!.values[0]
-
-        if(values<=10)
-            tvproximitySensor.text = "Object is near"
-        else
-            tvproximitySensor.text = "Object is far"
-
+        try {
+            if (event!!.values[0]<20 && !isRunning) {
+                isRunning=true
+                window.decorView.setBackgroundColor(Color. GRAY)
+            }else{isRunning = false
+                window.decorView.setBackgroundColor(Color.YELLOW)
+            }
+        }catch (e: IOException){}
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
 
     }
 
-
 }
+

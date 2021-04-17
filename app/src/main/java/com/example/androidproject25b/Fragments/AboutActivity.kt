@@ -35,6 +35,9 @@ class AboutActivity : Fragment() {
 
         WebSite.loadUrl("https://laptopsalesrepair.com/")
 
+//        WebSite.loadUrl("http://10.0.2.2:/")
+
+
         val webSettings = WebSite.getSettings()
         webSettings.setJavaScriptEnabled(true)
 
