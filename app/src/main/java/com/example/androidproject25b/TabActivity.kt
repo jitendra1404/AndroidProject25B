@@ -20,7 +20,9 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import java.io.IOException
 
-class TabActivity : AppCompatActivity(), SensorEventListener {
+class TabActivity : AppCompatActivity()
+//    ,SensorEventListener
+{
 
     private val permissions = arrayOf(
         android.Manifest.permission.CAMERA,
@@ -28,8 +30,8 @@ class TabActivity : AppCompatActivity(), SensorEventListener {
         android.Manifest.permission.ACCESS_FINE_LOCATION
     )
 
-    private lateinit var sensorManager: SensorManager
-    private lateinit var sensor:Sensor
+//    private lateinit var sensorManager: SensorManager
+//    private lateinit var sensor:Sensor
 
     private lateinit var lstTitle:ArrayList<String>
     private lateinit var lstFragments:ArrayList<Fragment>
@@ -40,8 +42,8 @@ class TabActivity : AppCompatActivity(), SensorEventListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tab)
 
-        sensorManager=getSystemService(Context.SENSOR_SERVICE)as SensorManager
-        sensor=sensorManager!!.getDefaultSensor(Sensor.TYPE_PROXIMITY)
+//        sensorManager=getSystemService(Context.SENSOR_SERVICE)as SensorManager
+//        sensor=sensorManager!!.getDefaultSensor(Sensor.TYPE_PROXIMITY)
 
         if (!hasPermission()){
             requestPermission()
@@ -95,36 +97,36 @@ class TabActivity : AppCompatActivity(), SensorEventListener {
         lstFragments.add(AboutActivity())
     }
 
-    override fun onResume() {
-        super.onResume()
-        sensorManager!!.registerListener(this,sensor,SensorManager.SENSOR_DELAY_NORMAL)
-    }
-    override fun onPause() {
-        super.onPause()
-        sensorManager!!.unregisterListener(this)
-    }
-
-    override fun onSensorChanged(event: SensorEvent?) {
-        val values = event!!.values[0]
-        if (values <= 4) {
-            try {
-                logoutapp()
-            } catch (e: IOException) {
-            }
-        }
-    }
-
-    private fun logoutapp() {
-        val sharedpref =getSharedPreferences("mypref", AppCompatActivity.MODE_PRIVATE)
-        val editor = sharedpref.edit()
-        editor.clear()
-        editor.apply()
-        startActivity(Intent(this@TabActivity,LoginActivity::class.java))
-    }
-
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-
-    }
+//    override fun onResume() {
+//        super.onResume()
+//        sensorManager!!.registerListener(this,sensor,SensorManager.SENSOR_DELAY_NORMAL)
+//    }
+//    override fun onPause() {
+//        super.onPause()
+//        sensorManager!!.unregisterListener(this)
+//    }
+//
+//    override fun onSensorChanged(event: SensorEvent?) {
+//        val values = event!!.values[0]
+//        if (values <= 4) {
+//            try {
+//                logoutapp()
+//            } catch (e: IOException) {
+//            }
+//        }
+//    }
+//
+//    private fun logoutapp() {
+//        val sharedpref =getSharedPreferences("mypref", AppCompatActivity.MODE_PRIVATE)
+//        val editor = sharedpref.edit()
+//        editor.clear()
+//        editor.apply()
+//        startActivity(Intent(this@TabActivity,LoginActivity::class.java))
+//    }
+//
+//    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+//
+//    }
 
 }
 

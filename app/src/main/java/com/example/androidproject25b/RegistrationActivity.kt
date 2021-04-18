@@ -1,6 +1,7 @@
 package com.example.androidproject25b
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -26,7 +27,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 
-class RegistrationActivity : AppCompatActivity() {
+class RegistrationActivity : AppCompatActivity()
+//    ,SensorEventListener
+{
 
     private lateinit var username: EditText
     private lateinit var password: EditText
@@ -35,6 +38,12 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var email: EditText
     private lateinit var confirmpassword: EditText
     private lateinit var signUp: Button
+
+//    private  var sensorManager: SensorManager?=null
+//    private  var sensor: Sensor?=null
+//    private var mAccel= 0f
+//    private var mAccelCurrent= 0f
+//    private var mAccelLast= 0f
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +57,12 @@ class RegistrationActivity : AppCompatActivity() {
         password = findViewById(R.id.edPassword)
         confirmpassword = findViewById(R.id.edConfirmPassword)
         signUp = findViewById(R.id.btnSingUP)
+
+//        sensorManager=getSystemService(Context.SENSOR_SERVICE)as SensorManager
+//        sensor=sensorManager!!.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+//        mAccel= 10f;
+//        mAccelCurrent=SensorManager.GRAVITY_EARTH;
+//        mAccelLast=SensorManager.GRAVITY_EARTH
 
 
         signUp.setOnClickListener {
@@ -111,25 +126,54 @@ class RegistrationActivity : AppCompatActivity() {
             }
         }
     }
-
     private fun lowPriorityNotification() {
 
-            val notificationManager = NotificationManagerCompat.from(this)
+        val notificationManager = NotificationManagerCompat.from(this)
 
-            val notificationChannels = NotificationChannel(this)
-            notificationChannels.createNotificationChannels()
+        val notificationChannels = NotificationChannel(this)
+        notificationChannels.createNotificationChannels()
 
-            val notification = NotificationCompat.Builder(this,notificationChannels.CHANNEL_2)
-                .setSmallIcon(R.drawable.ic_baseline_message_24)
-                .setContentTitle("Low priority notification")
-                .setContentText("User Successfully Register")
-                .setColor(Color.BLUE)
-                .build()
+        val notification = NotificationCompat.Builder(this,notificationChannels.CHANNEL_2)
+            .setSmallIcon(R.drawable.ic_baseline_message_24)
+            .setContentTitle("Low priority notification")
+            .setContentText("User Successfully Register")
+            .setColor(Color.BLUE)
+            .build()
 
-            notificationManager.notify(2, notification)
+        notificationManager.notify(2, notification)
 
-        }
+    }
 
+//    override fun onResume() {
+//        super.onResume()
+//        sensorManager!!.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
+//    }
+//    override fun onPause() {
+//        super.onPause()
+//        sensorManager!!.unregisterListener(this)
+//    }
+//
+//    override fun onSensorChanged(event: SensorEvent?) {
+//        val x: Float = event!!.values[0]
+//        val y: Float = event!!.values[1]
+//        val z: Float = event!!.values[2]
+//        mAccelLast = mAccelCurrent
+//        mAccelCurrent = Math.sqrt((x * x + y * y + z * z).toDouble()).toFloat()
+//        val delta: Float = mAccelCurrent - mAccelLast
+//        mAccel = mAccel * 0.9f + delta
+//        if (mAccel > 12) {
+//            leftactivity()
+//        }
+//    }
+//
+//    private fun leftactivity() {
+//        val intent = Intent(this@RegistrationActivity, LoginActivity::class.java)
+//        startActivity(intent)
+//    }
+//
+//    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+//
+//    }
 }
 
 

@@ -65,8 +65,8 @@ class AppointmentActivity : Fragment() {
     private fun loadappointment() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val appintmentRepository = AppointmentRepository()
-                val response =  appintmentRepository.getAllAppointment()
+                val appointmentRepository = AppointmentRepository()
+                val response =  appointmentRepository.getAllAppointment()
                 if (response.data !=null){
                     val lstappointment = response.data
                     withContext(Dispatchers.Main) {

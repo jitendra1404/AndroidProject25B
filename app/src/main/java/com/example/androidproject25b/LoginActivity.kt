@@ -26,14 +26,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 
-class LoginActivity : AppCompatActivity(),SensorEventListener {
-
-    private lateinit var sensorManager: SensorManager
-    private lateinit var accelerometerSensor: Sensor
-    private var nAccel= 0f
-    private var nAccelCurrent= 0f
-    private var nAccelLast= 0f
-
+class LoginActivity : AppCompatActivity() {
 
     private val permissions = arrayOf(
         android.Manifest.permission.CAMERA,
@@ -51,11 +44,6 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-
-        nAccel= 10f;
-        nAccelCurrent=SensorManager.GRAVITY_EARTH;
-        nAccelLast=SensorManager.GRAVITY_EARTH
 
         etUsername = findViewById(R.id.edUserName)
         etPassword = findViewById(R.id.edloginpassword)
@@ -79,8 +67,6 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
             startActivity(Intent(this@LoginActivity, RegistrationActivity::class.java))
         }
     }
-
-
 
     private fun highPriorityNotification() {
             val notificationManager = NotificationManagerCompat.from(this)
@@ -161,42 +147,7 @@ class LoginActivity : AppCompatActivity(),SensorEventListener {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        sensorManager!!.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL)
-    }
-    override fun onPause() {
-        super.onPause()
-        sensorManager!!.unregisterListener(this)
-    }
-
-    override fun onSensorChanged(event: SensorEvent?) {
-        val x: Float = event!!.values[0]
-        val y: Float = event!!.values[1]
-        val z: Float = event!!.values[2]
-        nAccelLast = nAccelCurrent
-        nAccelCurrent = Math.sqrt((x * x + y * y + z * z).toDouble()).toFloat()
-        val delta: Float = nAccelCurrent - nAccelLast
-        nAccel = nAccel * 0.9f + delta
-        if (nAccel > 12) {
-            rightactivity()
-        }
-    }
-
-    private fun rightactivity() {
-        val intent = Intent(this@LoginActivity, RegistrationActivity::class.java)
-        startActivity(intent)
-    }
-
-
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-
-    }
-
-
 }
-
-
 
 
 //    private fun saveSharePref() {

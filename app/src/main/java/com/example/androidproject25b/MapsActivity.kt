@@ -29,7 +29,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // Add a marker in Sydney and move the camera
         mMap.addMarker(
             MarkerOptions().position(LatLng(27.0449005, 84.8672171))
-                .title("our furniture product")
+                .title("Laptop Marmat Sewa Center")
                 .icon(BitmapDescriptorFactory.defaultMarker
                     (BitmapDescriptorFactory.HUE_BLUE)
                 )

@@ -19,7 +19,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class UpdateAppointmentActivity : AppCompatActivity(), SensorEventListener {
+class UpdateAppointmentActivity : AppCompatActivity(){
 
     private lateinit var DeviceName: EditText
     private lateinit var DeviceModel: EditText
@@ -28,23 +28,10 @@ class UpdateAppointmentActivity : AppCompatActivity(), SensorEventListener {
     private lateinit var Issue: EditText
     private lateinit var Edit: Button
 
-    private lateinit var tvGyroscopeSensor: TextView
-    private lateinit var sensorManager: SensorManager
-    private var sensor: Sensor? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_appointment)
 
-        tvGyroscopeSensor = findViewById(R.id.tvGyroscopeSensor)
-        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
-
-        if (!checkSensor())
-            return
-        else {
-            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
-            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
-        }
 
         DeviceName = findViewById(R.id.etDeviceName)
         DeviceModel = findViewById(R.id.etDeviceModel)
@@ -94,9 +81,9 @@ class UpdateAppointmentActivity : AppCompatActivity(), SensorEventListener {
                     withContext(Dispatchers.Main) {
                         Toast.makeText(
                             this@UpdateAppointmentActivity,
-                            " your Foods has been updated", Toast.LENGTH_SHORT
+                            " Appointment has been updated", Toast.LENGTH_SHORT
                         ).show()
-                    }
+                    } 
                 }
             } catch (ex: Exception) {
                 withContext(Dispatchers.Main) {
@@ -107,26 +94,5 @@ class UpdateAppointmentActivity : AppCompatActivity(), SensorEventListener {
                 }
             }
         }
-    }
-
-    private fun checkSensor(): Boolean {
-        var flag = true
-        if (sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE) == null) {
-            flag = false
-        }
-        return flag
-
-    }
-
-    override fun onSensorChanged(event: SensorEvent?) {
-        val values = event!!.values[1]
-        if (values < 0)
-            tvGyroscopeSensor.text = "Left"
-        else if (values > 0)
-            tvGyroscopeSensor.text = "Right"
-    }
-
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-
     }
 }

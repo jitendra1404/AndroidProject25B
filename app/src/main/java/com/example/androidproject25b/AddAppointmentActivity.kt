@@ -19,10 +19,12 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 import java.lang.Exception
 
-class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
+class AddAppointmentActivity : AppCompatActivity()
+//    ,SensorEventListener
+{
 
-    private lateinit var sensorManager:SensorManager
-    private lateinit var LightSensor:Sensor
+//    private lateinit var sensorManager:SensorManager
+//    private lateinit var LightSensor:Sensor
 
     private lateinit var etdevicename: EditText
     private lateinit var etdevicemodel: EditText
@@ -30,7 +32,6 @@ class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
     private lateinit var etlocation: EditText
     private lateinit var etissue: EditText
     private lateinit var btnsubmit: Button
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,8 +44,8 @@ class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
         etissue=findViewById(R.id.etissue)
         btnsubmit=findViewById(R.id.btnsubmit)
 
-        sensorManager=getSystemService(Context.SENSOR_SERVICE)as SensorManager
-        LightSensor=sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT)
+//        sensorManager=getSystemService(Context.SENSOR_SERVICE)as SensorManager
+//        LightSensor=sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT)
 
         btnsubmit.setOnClickListener {
             addAppointment()
@@ -101,31 +102,31 @@ class AddAppointmentActivity : AppCompatActivity(), SensorEventListener {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        sensorManager!!.registerListener(this,LightSensor,SensorManager.SENSOR_DELAY_NORMAL)
-    }
-    override fun onPause() {
-        super.onPause()
-        sensorManager!!.unregisterListener(this)
-    }
-
-    var isRunning=false
-
-    override fun onSensorChanged(event: SensorEvent?) {
-        try {
-            if (event!!.values[0]<20 && !isRunning) {
-                isRunning=true
-                window.decorView.setBackgroundColor(Color. GRAY)
-            }else{isRunning = false
-                window.decorView.setBackgroundColor(Color.YELLOW)
-            }
-        }catch (e: IOException){}
-    }
-
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-
-    }
+//    override fun onResume() {
+//        super.onResume()
+//        sensorManager!!.registerListener(this,LightSensor,SensorManager.SENSOR_DELAY_NORMAL)
+//    }
+//    override fun onPause() {
+//        super.onPause()
+//        sensorManager!!.unregisterListener(this)
+//    }
+//
+//    var isRunning=false
+//
+//    override fun onSensorChanged(event: SensorEvent?) {
+//        try {
+//            if (event!!.values[0]<20 && !isRunning) {
+//                isRunning=true
+//                window.decorView.setBackgroundColor(Color. GRAY)
+//            }else{isRunning = false
+//                window.decorView.setBackgroundColor(Color.YELLOW)
+//            }
+//        }catch (e: IOException){}
+//    }
+//
+//    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+//
+//    }
 
 }
 

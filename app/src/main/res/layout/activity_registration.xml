@@ -157,13 +157,7 @@
         android:layout_marginTop="5dp"
         android:textColor="@color/white"
         android:text=" Sign Up" />
-    <Button
-        android:id="@+id/tvAccelerometerSensor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
-        android:backgroundTint="#0C0C01"
-        android:textColor="@color/white" />
+
 
     </LinearLayout>
 
